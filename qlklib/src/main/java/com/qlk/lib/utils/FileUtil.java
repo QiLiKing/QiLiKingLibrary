@@ -67,24 +67,63 @@ public class FileUtil {
         return null;
     }
 
+    public static boolean createFile(String path) {
+        return createFile(path, false);
+    }
+
     /**
-     * 删除目录下所有文件及子文件
+     * @param forceCreate if path is a directory, delete and create with file type
+     * @return true if create success or already exists
+     */
+    public static boolean createFile(String path, boolean forceCreate) {
+        File file = new File(path);
+        if (file.exists()) {
+            if (file.isFile()) {
+                return true;
+            } else {
+                if (!forceCreate) {
+                    return false;
+                }
+                file.delete();
+            }
+        } else {
+            String dir = getParentDir(path);
+            if (dir != null) {
+                new File(dir).mkdirs();
+            }
+        }
+
+        try {
+            return file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    /**
+     * delete all files under the folder
+     *
+     * @return true if delete success or not exists
      */
     public static boolean deleteAllFiles(String dir) {
         File file = new File(dir);
+        if (!file.exists()) {
+            return true;
+        }
         if (file.isDirectory()) {
             File[] ff = file.listFiles();
             if (ff != null) {
                 for (File f : ff) {
                     if (f != null) {
-                        deleteAllFiles(f.getAbsolutePath());    //May cause StackOverflowException?
+                        deleteAllFiles(f.getAbsolutePath());    //Maybe cause StackOverflowException?
                     }
                 }
             }
-        } else if (file.isFile()) {
-            return file.delete();
         }
-        return false;
+
+        return file.delete();
     }
 
     public static void deleteAllFiles(Collection<String> dirs) {
@@ -114,7 +153,7 @@ public class FileUtil {
         final String dir = file.getParent();
         if (file.exists() && file.isFile()) {
             String name = file.getName();
-            final int split = name.indexOf(".");    //the first dot
+            final int split = name.indexOf(DOT);    //the first dot
             String left = name.substring(0, split);
             String type = name.substring(split);
             if (left.matches(".*\\(\\d\\)")) {
@@ -131,5 +170,17 @@ public class FileUtil {
             }
         }
         return desPath;
+    }
+
+    public static void write(String desFilePath, byte[] data) {
+        write(desFilePath, data, false);
+    }
+
+    public static void write(String desFilePath, byte[] data, boolean append) {
+        try (FileOutputStream fos = new FileOutputStream(desFilePath, append)) {
+            fos.write(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

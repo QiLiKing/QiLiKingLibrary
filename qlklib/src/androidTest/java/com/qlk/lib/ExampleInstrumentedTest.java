@@ -1,8 +1,12 @@
 package com.qlk.lib;
 
 import android.content.Context;
+import android.os.Environment;
+import android.os.Looper;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import android.util.Log;
+import android.widget.Toast;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,8 +23,18 @@ public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
         // Context of the app under test.
+        // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.qlk.lib.test", appContext.getPackageName());
+        Looper.prepare();
+        Toast.makeText(appContext, "hhfdfsdfsdfsfsfsfdsfh", 0).show();
+        String str = Environment.getExternalStorageDirectory().getAbsolutePath();
+        System.out.println("nnn");
+        System.out.println(str);
+        Toast.makeText(appContext, "hhfdfsdfsdfsfsfsfdsfh" + str, 0).show();
+        Log.i("ExampleInstrumentedTest", "useAppContext: str:" + str);
+        assert str == null;
+        Looper.loop();
     }
 }
