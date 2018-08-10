@@ -149,13 +149,31 @@ public class FileUtil {
     }
 
     public static String needRename(String desPath) {
-        File file = new File(desPath);
+        return needRename(desPath, false);
+    }
+
+    /**
+     * @param autoCreate not force create
+     */
+    public static String needRename(String expectPath, boolean autoCreate) {
+        File file = new File(expectPath);
         final String dir = file.getParent();
+        String desPath = expectPath;
         if (file.exists() && file.isFile()) {
             String name = file.getName();
-            final int split = name.indexOf(DOT);    //the first dot
-            String left = name.substring(0, split);
-            String type = name.substring(split);
+            int first = name.indexOf(DOT);    //the first dot
+            int last = name.lastIndexOf(DOT);
+            int index = first;
+            if (name.startsWith(DOT)) {    //hide file
+                if (first == last) {
+                    index = name.length();
+                } else {
+                    String tmp = name.substring(1, name.length());
+                    index = tmp.indexOf(DOT) + 1;
+                }
+            }
+            String left = name.substring(0, index);
+            String type = name.substring(index);
             if (left.matches(".*\\(\\d\\)")) {
                 left = left.substring(0, left.length() - 3);
             }
@@ -168,6 +186,10 @@ public class FileUtil {
                 }
                 i++;
             }
+        }
+
+        if (autoCreate) {
+            createFile(desPath);
         }
         return desPath;
     }

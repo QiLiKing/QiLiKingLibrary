@@ -102,9 +102,15 @@ public class FileUtilTest {
         FileUtil.createFile(VALID_PATH, true);
         assertEquals(true, FileUtil.deleteAllFiles(VALID_ROOT));
 
+        assertEquals(false, new File(VALID_ROOT).exists());
+        assertEquals(false, new File(VALID_PATH).exists());
+
         //4. delete file
         FileUtil.createFile(VALID_PATH, true);
         assertEquals(true, FileUtil.deleteAllFiles(VALID_PATH));
+
+        assertEquals(true, new File(VALID_ROOT).exists());
+        assertEquals(false, new File(VALID_PATH).exists());
     }
 
     @Test
@@ -113,8 +119,63 @@ public class FileUtilTest {
 
     @Test
     public void needRename() {
-        File file = new File(VALID_PATH);
 
+        FileUtil.deleteAllFiles(VALID_ROOT);
+
+        String conflictPath = VALID_ROOT + "/test.txt";   //create
+        String expectedPath = VALID_ROOT + "/test.txt";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+        conflictPath = VALID_ROOT + "/test.txt";
+        expectedPath = VALID_ROOT + "/test(1).txt";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+        conflictPath = VALID_ROOT + "/test.txt";
+        expectedPath = VALID_ROOT + "/test(2).txt";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+        conflictPath = VALID_ROOT + "/.hide";   //create
+        expectedPath = VALID_ROOT + "/.hide";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+        conflictPath = VALID_ROOT + "/.hide";
+        expectedPath = VALID_ROOT + "/.hide(1)";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+        conflictPath = VALID_ROOT + "/.hide";
+        expectedPath = VALID_ROOT + "/.hide(2)";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+        conflictPath = VALID_ROOT + "/.hide.txt";   //create
+        expectedPath = VALID_ROOT + "/.hide.txt";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+        conflictPath = VALID_ROOT + "/.hide.txt";
+        expectedPath = VALID_ROOT + "/.hide(1).txt";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+        conflictPath = VALID_ROOT + "/.hide.txt";
+        expectedPath = VALID_ROOT + "/.hide(2).txt";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+        conflictPath = VALID_ROOT + "/.hidesuffix.txt.jpg";   //create
+        expectedPath = VALID_ROOT + "/.hidesuffix.txt.jpg";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+        conflictPath = VALID_ROOT + "/.hidesuffix.txt.jpg";
+        expectedPath = VALID_ROOT + "/.hidesuffix(1).txt.jpg";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+        conflictPath = VALID_ROOT + "/.hidesuffix.txt.jpg";
+        expectedPath = VALID_ROOT + "/.hidesuffix(2).txt.jpg";
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+
+
+        //rename directory
+        conflictPath = VALID_ROOT + "/folder";
+        expectedPath = VALID_ROOT + "/folder";
+        new File(conflictPath).mkdirs();
+        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
     }
 
     @Test
