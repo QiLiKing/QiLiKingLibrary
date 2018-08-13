@@ -13,7 +13,7 @@ import java.io.OutputStream;
  * QQ：1055329812<br/>
  * Created by QiLiKing on 2018/8/9 17:23
  */
-public class IOUtil {
+public class QlkIOUtil {
     private static final int BUFFER_SIZE = 1024 * 4;
 
     public static void close(Closeable... streams) {

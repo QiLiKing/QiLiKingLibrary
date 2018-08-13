@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  * QQ：1055329812<br/>
  * Created by QiLiKing on 2018/8/10 16:04
  */
-public class FileUtilTest {
+public class QlkFileUtilTest {
     private static final String VALID_ROOT = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DCIM/Camera/test";
     private static final String INVALID_ROOT = "./ADJ//DFHG/ED";
     private static final String VALID_PATH = VALID_ROOT + File.separator + "test.txt";
@@ -44,7 +44,7 @@ public class FileUtilTest {
         Log.i("FileUtilTest", "isFileInvalid: ");
 
         for (String path : PATHS) {
-            System.out.println(path + "---" + FileUtil.isFileInvalid(path));
+            System.out.println(path + "---" + QlkFileUtil.isFileInvalid(path));
         }
     }
 
@@ -70,7 +70,7 @@ public class FileUtilTest {
         Log.i("FileUtilTest", "getFileName: ");
 
         for (String path : PATHS) {
-            System.out.println(path + "---" + FileUtil.getFileName(path));
+            System.out.println(path + "---" + QlkFileUtil.getFileName(path));
         }
     }
 
@@ -79,7 +79,7 @@ public class FileUtilTest {
         Log.i("FileUtilTest", "getParentDir: ");
 
         for (String path : PATHS) {
-            System.out.println(path + "---" + FileUtil.getParentDir(path));
+            System.out.println(path + "---" + QlkFileUtil.getParentDir(path));
         }
     }
 
@@ -88,7 +88,7 @@ public class FileUtilTest {
         Log.i("FileUtilTest", "getFolder: ");
 
         for (String path : PATHS) {
-            System.out.println(path + "---" + FileUtil.getFolder(path));
+            System.out.println(path + "---" + QlkFileUtil.getFolder(path));
         }
     }
 
@@ -103,23 +103,23 @@ public class FileUtilTest {
         //1. root not exists
         file.delete();
         rootFile.delete();
-        assertEquals(true, FileUtil.deleteAllFiles(VALID_ROOT));
+        assertEquals(true, QlkFileUtil.deleteAllFiles(VALID_ROOT));
 
         //2. empty folder
         file.delete();
         rootFile.mkdirs();
-        assertEquals(true, FileUtil.deleteAllFiles(VALID_ROOT));
+        assertEquals(true, QlkFileUtil.deleteAllFiles(VALID_ROOT));
 
         //3. not empty folder
-        FileUtil.createFile(VALID_PATH, true);
-        assertEquals(true, FileUtil.deleteAllFiles(VALID_ROOT));
+        QlkFileUtil.createFile(VALID_PATH, true);
+        assertEquals(true, QlkFileUtil.deleteAllFiles(VALID_ROOT));
 
         assertEquals(false, new File(VALID_ROOT).exists());
         assertEquals(false, new File(VALID_PATH).exists());
 
         //4. delete file
-        FileUtil.createFile(VALID_PATH, true);
-        assertEquals(true, FileUtil.deleteAllFiles(VALID_PATH));
+        QlkFileUtil.createFile(VALID_PATH, true);
+        assertEquals(true, QlkFileUtil.deleteAllFiles(VALID_PATH));
 
         assertEquals(true, new File(VALID_ROOT).exists());
         assertEquals(false, new File(VALID_PATH).exists());
@@ -134,11 +134,11 @@ public class FileUtilTest {
             data[i] = (byte) i;
         }
         String srcPath = VALID_PATH;
-        FileUtil.createDirectory(VALID_ROOT, true);
-        FileUtil.write(srcPath, data, true);
+        QlkFileUtil.createDirectory(VALID_ROOT, true);
+        QlkFileUtil.write(srcPath, data, true);
 
-        String desPath = FileUtil.needRename(VALID_PATH);
-        FileUtil.copyFile(srcPath, desPath);
+        String desPath = QlkFileUtil.needRename(VALID_PATH);
+        QlkFileUtil.copyFile(srcPath, desPath);
         assertEquals(true, new File(desPath).exists());
         assertEquals(new File(srcPath).length(), new File(desPath).length());
     }
@@ -147,62 +147,62 @@ public class FileUtilTest {
     public void needRename() {
         Log.i("FileUtilTest", "needRename: ");
 
-        FileUtil.deleteAllFiles(VALID_ROOT);
+        QlkFileUtil.deleteAllFiles(VALID_ROOT);
 
         String conflictPath = VALID_ROOT + "/test.txt";   //create
         String expectedPath = VALID_ROOT + "/test.txt";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
         conflictPath = VALID_ROOT + "/test.txt";
         expectedPath = VALID_ROOT + "/test(1).txt";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
         conflictPath = VALID_ROOT + "/test.txt";
         expectedPath = VALID_ROOT + "/test(2).txt";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
         conflictPath = VALID_ROOT + "/.hide";   //create
         expectedPath = VALID_ROOT + "/.hide";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
         conflictPath = VALID_ROOT + "/.hide";
         expectedPath = VALID_ROOT + "/.hide(1)";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
         conflictPath = VALID_ROOT + "/.hide";
         expectedPath = VALID_ROOT + "/.hide(2)";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
         conflictPath = VALID_ROOT + "/.hide.txt";   //create
         expectedPath = VALID_ROOT + "/.hide.txt";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
         conflictPath = VALID_ROOT + "/.hide.txt";
         expectedPath = VALID_ROOT + "/.hide(1).txt";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
         conflictPath = VALID_ROOT + "/.hide.txt";
         expectedPath = VALID_ROOT + "/.hide(2).txt";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
         conflictPath = VALID_ROOT + "/.hidesuffix.txt.jpg";   //create
         expectedPath = VALID_ROOT + "/.hidesuffix.txt.jpg";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
         conflictPath = VALID_ROOT + "/.hidesuffix.txt.jpg";
         expectedPath = VALID_ROOT + "/.hidesuffix(1).txt.jpg";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
         conflictPath = VALID_ROOT + "/.hidesuffix.txt.jpg";
         expectedPath = VALID_ROOT + "/.hidesuffix(2).txt.jpg";
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
 
 
         //rename directory
         conflictPath = VALID_ROOT + "/folder";
         expectedPath = VALID_ROOT + "/folder";
         new File(conflictPath).mkdirs();
-        assertEquals(expectedPath, FileUtil.needRename(conflictPath, true));
+        assertEquals(expectedPath, QlkFileUtil.needRename(conflictPath, true));
     }
 
     @Test
@@ -221,7 +221,7 @@ public class FileUtilTest {
         file.delete();
         rootFile.delete();
         file.mkdirs();
-        assertEquals(false, FileUtil.createFile(VALID_PATH));
+        assertEquals(false, QlkFileUtil.createFile(VALID_PATH));
         assertEquals(true, file.exists());
         assertEquals(false, file.isFile());
 
@@ -229,21 +229,21 @@ public class FileUtilTest {
         file.delete();
         rootFile.delete();
         file.mkdirs();
-        assertEquals(true, FileUtil.createFile(VALID_PATH, true));
+        assertEquals(true, QlkFileUtil.createFile(VALID_PATH, true));
         assertEquals(true, file.exists());
         assertEquals(true, file.isFile());
 
         //3. PATH not exists
         file.delete();
         rootFile.delete();
-        assertEquals(true, FileUtil.createFile(VALID_PATH));
+        assertEquals(true, QlkFileUtil.createFile(VALID_PATH));
         assertEquals(true, file.exists());
         assertEquals(true, file.isFile());
 
         //4. PATH not exists, force create
         file.delete();
         rootFile.delete();
-        assertEquals(true, FileUtil.createFile(VALID_PATH, true));
+        assertEquals(true, QlkFileUtil.createFile(VALID_PATH, true));
         assertEquals(true, file.exists());
         assertEquals(true, file.isFile());
 
@@ -251,7 +251,7 @@ public class FileUtilTest {
         file.delete();
         rootFile.mkdirs();
         assertEquals(true, rootFile.isDirectory());
-        assertEquals(true, FileUtil.createFile(VALID_ROOT, true));
+        assertEquals(true, QlkFileUtil.createFile(VALID_ROOT, true));
         assertEquals(false, file.exists());
         assertEquals(true, rootFile.isFile());
 
@@ -267,29 +267,29 @@ public class FileUtilTest {
         File file = new File(directory);
 
         //1. is a file
-        FileUtil.createFile(directory, true);
+        QlkFileUtil.createFile(directory, true);
         assertEquals(true, file.isFile());
-        FileUtil.createDirectory(directory, false);
+        QlkFileUtil.createDirectory(directory, false);
         assertEquals(false, file.isDirectory());
-        FileUtil.createDirectory(directory, true);
+        QlkFileUtil.createDirectory(directory, true);
         assertEquals(true, file.isDirectory());
 
         //2. parent not exists
-        FileUtil.deleteAllFiles(parent);
+        QlkFileUtil.deleteAllFiles(parent);
         assertEquals(false, parentFile.exists());
-        FileUtil.createDirectory(parent, false);
+        QlkFileUtil.createDirectory(parent, false);
         assertEquals(true, parentFile.exists());
-        FileUtil.deleteAllFiles(parent);
+        QlkFileUtil.deleteAllFiles(parent);
         assertEquals(false, parentFile.exists());
-        FileUtil.createDirectory(parent, true);
+        QlkFileUtil.createDirectory(parent, true);
         assertEquals(true, parentFile.exists());
 
         //3. parent is a file
-        FileUtil.createFile(parent, true);
+        QlkFileUtil.createFile(parent, true);
         assertEquals(true, parentFile.isFile());
-        FileUtil.createDirectory(directory, false);
+        QlkFileUtil.createDirectory(directory, false);
         assertEquals(false, parentFile.isDirectory());
-        FileUtil.createDirectory(directory, true);
+        QlkFileUtil.createDirectory(directory, true);
         assertEquals(true, parentFile.isDirectory());
     }
 
@@ -305,13 +305,13 @@ public class FileUtilTest {
         new File(VALID_ROOT).mkdirs();
 
         //not exists
-        FileUtil.deleteAllFiles(VALID_PATH);
-        FileUtil.write(VALID_PATH, data);   //100 B
-        FileUtil.write(VALID_PATH, data, true); //200 B
+        QlkFileUtil.deleteAllFiles(VALID_PATH);
+        QlkFileUtil.write(VALID_PATH, data);   //100 B
+        QlkFileUtil.write(VALID_PATH, data, true); //200 B
 
         //exists
-        FileUtil.write(VALID_PATH, data, true); //300 B
-        FileUtil.write(VALID_PATH, data);    //100 B
+        QlkFileUtil.write(VALID_PATH, data, true); //300 B
+        QlkFileUtil.write(VALID_PATH, data);    //100 B
     }
 
 }
