@@ -27,9 +27,6 @@ public class FileUtil {
     }
 
     public static boolean isFileValid(String filePath) {
-        if (filePath == null) {
-            return false;
-        }
         if (isRemoteFile(filePath)) {
             return true;
         }
@@ -38,9 +35,6 @@ public class FileUtil {
     }
 
     public static boolean isRemoteFile(String path) {
-        if (path == null) {
-            return false;
-        }
         path = path.toLowerCase();
         return path.startsWith(HTTP) || path.startsWith(HTTPS) || path.startsWith(FTP);
     }
@@ -134,15 +128,18 @@ public class FileUtil {
     }
 
     /**
-     * @return Copy length
+     * @return Copy length. -1 copy failed
      */
-    public static long copyFile(String from, String to) throws IOException {
+    public static long copyFile(String from, String to) {
         FileInputStream fis = null;
         FileOutputStream fos = null;
         try {
             fis = new FileInputStream(from);
             fos = new FileOutputStream(to);
             return IOUtil.copy(fis, fos);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
         } finally {
             IOUtil.close(fis, fos);
         }
@@ -199,10 +196,14 @@ public class FileUtil {
     }
 
     public static void write(String desFilePath, byte[] data, boolean append) {
-        try (FileOutputStream fos = new FileOutputStream(desFilePath, append)) {
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(desFilePath, append);
             fos.write(data);
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            IOUtil.close(fos);
         }
     }
 }

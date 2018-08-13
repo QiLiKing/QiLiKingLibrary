@@ -115,6 +115,7 @@ public class FileUtilTest {
 
     @Test
     public void copyFile() {
+        String srcPath = VALID_PATH;
     }
 
     @Test
@@ -219,5 +220,33 @@ public class FileUtilTest {
         assertEquals(true, file.exists());
         assertEquals(true, file.isFile());
 
+        //5. a directory, force to file
+        file.delete();
+        rootFile.mkdirs();
+        assertEquals(true, rootFile.isDirectory());
+        assertEquals(true, FileUtil.createFile(VALID_ROOT, true));
+        assertEquals(false, file.exists());
+        assertEquals(true, rootFile.isFile());
+
     }
+
+    @Test
+    public void write() {
+        byte[] data = new byte[100];
+        for (int i = 0; i < 100; i++) {
+            data[i] = (byte) i;
+        }
+
+        new File(VALID_ROOT).mkdirs();
+
+        //not exists
+        FileUtil.deleteAllFiles(VALID_PATH);
+        FileUtil.write(VALID_PATH, data);   //100 B
+        FileUtil.write(VALID_PATH, data, true); //200 B
+
+        //exists
+        FileUtil.write(VALID_PATH, data, true); //300 B
+        FileUtil.write(VALID_PATH, data);    //100 B
+    }
+
 }
