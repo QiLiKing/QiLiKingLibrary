@@ -78,12 +78,12 @@ public class FileUtil {
                 if (!forceCreate) {
                     return false;
                 }
-                file.delete();
+                deleteAllFiles(path);
             }
         } else {
             String dir = getParentDir(path);
             if (dir != null) {
-                new File(dir).mkdirs();
+                createDirectory(dir, forceCreate);
             }
         }
 
@@ -94,6 +94,31 @@ public class FileUtil {
         }
 
         return false;
+    }
+
+    /**
+     * @return true the directory exists or created successfully
+     */
+    public static boolean createDirectory(String dir, boolean forceCreate) {
+        File file = new File(dir);
+        if (file.exists()) {
+            if (file.isDirectory()) {
+                return true;
+            } else {
+                if (!forceCreate) {
+                    return false;
+                }
+                file.delete();
+                return file.mkdirs();
+            }
+        } else {
+            String parent = file.getParent();
+            //check the parent directory is whether a file or not.
+            if (parent != null) {
+                createDirectory(parent, forceCreate);
+            }
+            return file.mkdirs();
+        }
     }
 
     /**
@@ -186,7 +211,7 @@ public class FileUtil {
         }
 
         if (autoCreate) {
-            createFile(desPath);
+            createFile(desPath);    //not force to create
         }
         return desPath;
     }

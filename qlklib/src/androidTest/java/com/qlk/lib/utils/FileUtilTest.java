@@ -1,6 +1,7 @@
 package com.qlk.lib.utils;
 
 import android.os.Environment;
+import android.util.Log;
 
 import org.junit.Test;
 
@@ -40,6 +41,8 @@ public class FileUtilTest {
 
     @Test
     public void isFileInvalid() {
+        Log.i("FileUtilTest", "isFileInvalid: ");
+
         for (String path : PATHS) {
             System.out.println(path + "---" + FileUtil.isFileInvalid(path));
         }
@@ -55,6 +58,8 @@ public class FileUtilTest {
 
     @Test
     public void exists() {
+        Log.i("FileUtilTest", "exists: ");
+
         for (String path : PATHS) {
             System.out.println(path + "---" + FileUtil.exists(path));
         }
@@ -62,6 +67,8 @@ public class FileUtilTest {
 
     @Test
     public void getFileName() {
+        Log.i("FileUtilTest", "getFileName: ");
+
         for (String path : PATHS) {
             System.out.println(path + "---" + FileUtil.getFileName(path));
         }
@@ -69,6 +76,8 @@ public class FileUtilTest {
 
     @Test
     public void getParentDir() {
+        Log.i("FileUtilTest", "getParentDir: ");
+
         for (String path : PATHS) {
             System.out.println(path + "---" + FileUtil.getParentDir(path));
         }
@@ -76,6 +85,8 @@ public class FileUtilTest {
 
     @Test
     public void getFolder() {
+        Log.i("FileUtilTest", "getFolder: ");
+
         for (String path : PATHS) {
             System.out.println(path + "---" + FileUtil.getFolder(path));
         }
@@ -83,6 +94,7 @@ public class FileUtilTest {
 
     @Test
     public void deleteAllFiles() {
+        Log.i("FileUtilTest", "deleteAllFiles: ");
 
         //valid
         File rootFile = new File(VALID_ROOT);
@@ -115,11 +127,25 @@ public class FileUtilTest {
 
     @Test
     public void copyFile() {
+        Log.i("FileUtilTest", "copyFile: ");
+
+        final byte[] data = new byte[100];
+        for (int i = 0; i < 100; i++) {
+            data[i] = (byte) i;
+        }
         String srcPath = VALID_PATH;
+        FileUtil.createDirectory(VALID_ROOT, true);
+        FileUtil.write(srcPath, data, true);
+
+        String desPath = FileUtil.needRename(VALID_PATH);
+        FileUtil.copyFile(srcPath, desPath);
+        assertEquals(true, FileUtil.exists(desPath));
+        assertEquals(new File(srcPath).length(), new File(desPath).length());
     }
 
     @Test
     public void needRename() {
+        Log.i("FileUtilTest", "needRename: ");
 
         FileUtil.deleteAllFiles(VALID_ROOT);
 
@@ -181,6 +207,7 @@ public class FileUtilTest {
 
     @Test
     public void createFile() {
+        Log.i("FileUtilTest", "createFile: ");
 
         //valid
         File rootFile = new File(VALID_ROOT);
@@ -231,8 +258,46 @@ public class FileUtilTest {
     }
 
     @Test
+    public void createDirectory() {
+        Log.i("FileUtilTest", "createDirectory: ");
+
+        String parent = VALID_ROOT;
+        String directory = VALID_ROOT + File.separator + "dir";
+        File parentFile = new File(parent);
+        File file = new File(directory);
+
+        //1. is a file
+        FileUtil.createFile(directory, true);
+        assertEquals(true, file.isFile());
+        FileUtil.createDirectory(directory, false);
+        assertEquals(false, file.isDirectory());
+        FileUtil.createDirectory(directory, true);
+        assertEquals(true, file.isDirectory());
+
+        //2. parent not exists
+        FileUtil.deleteAllFiles(parent);
+        assertEquals(false, parentFile.exists());
+        FileUtil.createDirectory(parent, false);
+        assertEquals(true, parentFile.exists());
+        FileUtil.deleteAllFiles(parent);
+        assertEquals(false, parentFile.exists());
+        FileUtil.createDirectory(parent, true);
+        assertEquals(true, parentFile.exists());
+
+        //3. parent is a file
+        FileUtil.createFile(parent, true);
+        assertEquals(true, parentFile.isFile());
+        FileUtil.createDirectory(directory, false);
+        assertEquals(false, parentFile.isDirectory());
+        FileUtil.createDirectory(directory, true);
+        assertEquals(true, parentFile.isDirectory());
+    }
+
+    @Test
     public void write() {
-        byte[] data = new byte[100];
+        Log.i("FileUtilTest", "write: ");
+
+        final byte[] data = new byte[100];
         for (int i = 0; i < 100; i++) {
             data[i] = (byte) i;
         }
