@@ -37,10 +37,6 @@ public class QlkFileUtil {
         return path.startsWith(HTTP) || path.startsWith(HTTPS) || path.startsWith(FTP);
     }
 
-    public static boolean exists(String path) {
-        return path != null && new File(path).exists();
-    }
-
     public static String getFileName(String filePath) {
         return new File(filePath).getName();
     }

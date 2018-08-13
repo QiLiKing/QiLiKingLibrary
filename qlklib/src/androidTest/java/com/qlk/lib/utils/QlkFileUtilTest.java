@@ -61,7 +61,7 @@ public class QlkFileUtilTest {
         Log.i("FileUtilTest", "exists: ");
 
         for (String path : PATHS) {
-            System.out.println(path + "---" + QlkFileUtil.exists(path));
+            System.out.println(path + "---" + new File(path).exists());
         }
     }
 
@@ -139,7 +139,7 @@ public class QlkFileUtilTest {
 
         String desPath = QlkFileUtil.needRename(VALID_PATH);
         QlkFileUtil.copyFile(srcPath, desPath);
-        assertEquals(true, QlkFileUtil.exists(desPath));
+        assertEquals(true, new File(desPath).exists());
         assertEquals(new File(srcPath).length(), new File(desPath).length());
     }
 
