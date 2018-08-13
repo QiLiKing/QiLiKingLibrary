@@ -14,24 +14,24 @@ import static org.junit.Assert.*;
  * QQ：1055329812<br/>
  * Created by QiLiKing on 2018/8/9 18:04
  */
-public class QlkIOUtilTest {
+public class IOUtilTest {
     private static final byte[] BYTES = {98, 26, 38, 49, 56, 96, 98, 26, 38, 49, 56, 96, 98, 26, 38, 49, 56, 96, 98, 26, 38, 49, 56, 96, 98, 26, 38, 49, 56, 96, 98, 26, 38, 49, 56, 96, 98, 26, 38, 49, 56, 96, 98, 26, 38, 49, 56, 96, 98, 26, 38, 49, 56, 96, 98, 26, 38, 49, 56, 96, 98, 26, 38, 49, 56, 96, 98, 26, 38, 49, 56, 96};
 
     @Test
     public void close() {
-        QlkIOUtil.close();
+        IOUtil.close();
 //        IOUtil.close(null); //error
-        QlkIOUtil.close(null, null);
+        IOUtil.close(null, null);
 
         InputStream is = null;
-        QlkIOUtil.close(is);
+        IOUtil.close(is);
     }
 
     @Test
     public void toByteArray() {
         InputStream is = new ByteArrayInputStream(BYTES);
         try {
-            byte[] b = QlkIOUtil.toByteArray(is);
+            byte[] b = IOUtil.toByteArray(is);
             assertArrayEquals(b, BYTES);
         } catch (IOException e) {
             e.printStackTrace();
@@ -43,7 +43,7 @@ public class QlkIOUtilTest {
         InputStream is = new ByteArrayInputStream(BYTES);
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         try {
-            long len = QlkIOUtil.copy(is, os);
+            long len = IOUtil.copy(is, os);
             assertEquals(len, BYTES.length);
             byte[] out = os.toByteArray();
             assertArrayEquals(out, BYTES);
@@ -56,7 +56,7 @@ public class QlkIOUtilTest {
     public void toStr() {
         InputStream is = new ByteArrayInputStream(BYTES);
         try {
-            assertEquals("b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`", QlkIOUtil.toString(is));
+            assertEquals("b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`", IOUtil.toString(is));
         } catch (IOException e) {
             e.printStackTrace();
         }

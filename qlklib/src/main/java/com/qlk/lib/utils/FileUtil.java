@@ -14,7 +14,7 @@ import java.util.Iterator;
  * QQ：1055329812<br/>
  * Created by QiLiKing on 2018/8/9 17:23
  */
-public class QlkFileUtil {
+public class FileUtil {
     public static final String DOT = ".";
     public static final String HTTP = "http://";
     public static final String HTTPS = "https://";
@@ -155,12 +155,12 @@ public class QlkFileUtil {
         try {
             fis = new FileInputStream(from);
             fos = new FileOutputStream(to);
-            return QlkIOUtil.copy(fis, fos);
+            return IOUtil.copy(fis, fos);
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
         } finally {
-            QlkIOUtil.close(fis, fos);
+            IOUtil.close(fis, fos);
         }
     }
 
@@ -222,7 +222,7 @@ public class QlkFileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            QlkIOUtil.close(fos);
+            IOUtil.close(fos);
         }
     }
 }
