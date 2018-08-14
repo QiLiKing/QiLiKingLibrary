@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 /**
  * <br/>
  * QQ：1055329812<br/>
@@ -17,9 +19,12 @@ import org.junit.Test;
 public class QlkDisplayUtilTest {
 
     @Test
-    public void getScreenWidth() {
+    public void testPxDpSp() {
         Context appContext = InstrumentationRegistry.getTargetContext();
-
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + QlkDisplayUtil.dp2px(appContext, 10));
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + QlkDisplayUtil.px2dp(appContext, 100));
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + QlkDisplayUtil.px2sp(appContext, 10));
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + QlkDisplayUtil.sp2px(appContext, 100));
     }
 
     @Test
@@ -37,6 +42,8 @@ public class QlkDisplayUtilTest {
         Log.i("QlkDisplayUtilTest", "testLandscape: realHeight=" + realHeight);
         Log.i("QlkDisplayUtilTest", "testLandscape: statusBarHeight=" + statusBarHeight);
         Log.i("QlkDisplayUtilTest", "testLandscape: virtualBarHeight=" + virtualBarHeight);
+        assertEquals(realHeight, height);
+        assertEquals(realWidth, width + virtualBarHeight);
     }
 
     @Test
@@ -54,6 +61,8 @@ public class QlkDisplayUtilTest {
         Log.i("QlkDisplayUtilTest", "testPortrait: realHeight=" + realHeight);
         Log.i("QlkDisplayUtilTest", "testPortrait: statusBarHeight=" + statusBarHeight);
         Log.i("QlkDisplayUtilTest", "testPortrait: virtualBarHeight=" + virtualBarHeight);
+        assertEquals(width, realWidth);
+        assertEquals(realHeight, height + virtualBarHeight);
     }
 
 }
