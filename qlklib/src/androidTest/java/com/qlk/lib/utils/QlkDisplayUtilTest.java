@@ -18,15 +18,20 @@ import static org.junit.Assert.*;
  */
 public class QlkDisplayUtilTest {
 
+    //720P---2.0x; 1080---2.625x
     @Test
     public void testPxDpSp() {
         Context appContext = InstrumentationRegistry.getTargetContext();
-        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + appContext.getResources().getDisplayMetrics().density);
-        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + appContext.getResources().getDisplayMetrics().scaledDensity);
-        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + QlkDisplayUtil.dp2px(appContext, 10));
-        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + QlkDisplayUtil.px2dp(appContext, 100));
-        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + QlkDisplayUtil.px2sp(appContext, 10));
-        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + QlkDisplayUtil.sp2px(appContext, 100));
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: density=" + appContext.getResources().getDisplayMetrics().density);
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: scaledDensity=" + appContext.getResources().getDisplayMetrics().scaledDensity);
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: 38dp=" + QlkDisplayUtil.dp2px(appContext, 38));
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: 100px=" + QlkDisplayUtil.px2dp(appContext, 100));
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: 100px=" + QlkDisplayUtil.px2sp(appContext, 100));
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: 38sp=" + QlkDisplayUtil.sp2px(appContext, 38));
+
+        int value = 40;
+        assertEquals(value, QlkDisplayUtil.px2dp(appContext, QlkDisplayUtil.dp2px(appContext, value)));
+        assertEquals(value, QlkDisplayUtil.px2sp(appContext, QlkDisplayUtil.sp2px(appContext, value)));
     }
 
     @Test
