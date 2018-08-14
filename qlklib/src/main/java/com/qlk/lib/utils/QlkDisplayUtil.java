@@ -21,7 +21,7 @@ public class QlkDisplayUtil {
      */
     public static int px2dp(Context context, float pxValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (pxValue / scale + 0.5f);
+        return (int) (pxValue / scale + 0.5f);  //add 0.5f for Rounding Algorithm. see https://blog.csdn.net/changcsw/article/details/52440543
     }
 
     /**

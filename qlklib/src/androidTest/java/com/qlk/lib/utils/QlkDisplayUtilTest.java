@@ -21,6 +21,8 @@ public class QlkDisplayUtilTest {
     @Test
     public void testPxDpSp() {
         Context appContext = InstrumentationRegistry.getTargetContext();
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + appContext.getResources().getDisplayMetrics().density);
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: " + appContext.getResources().getDisplayMetrics().scaledDensity);
         Log.i("QlkDisplayUtilTest", "testPxDpSp: " + QlkDisplayUtil.dp2px(appContext, 10));
         Log.i("QlkDisplayUtilTest", "testPxDpSp: " + QlkDisplayUtil.px2dp(appContext, 100));
         Log.i("QlkDisplayUtilTest", "testPxDpSp: " + QlkDisplayUtil.px2sp(appContext, 10));
