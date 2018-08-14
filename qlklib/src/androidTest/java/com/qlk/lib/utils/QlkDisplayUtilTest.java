@@ -3,12 +3,11 @@ package com.qlk.lib.utils;
 import android.content.Context;
 import android.os.Looper;
 import android.support.test.InstrumentationRegistry;
+import android.test.InstrumentationTestCase;
 import android.util.Log;
 import android.widget.Toast;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * <br/>
@@ -32,9 +31,12 @@ public class QlkDisplayUtilTest {
         int realHeight = QlkDisplayUtil.getScreenHeight(appContext);
         int statusBarHeight = QlkDisplayUtil.getStatusBarHeight(appContext);
         int virtualBarHeight = QlkDisplayUtil.getVirtualBarHeight(appContext);
-        Looper.prepare();
-        Toast.makeText(appContext, width + "---" + height + "---" + realWidth + "---" + realHeight + "---" + statusBarHeight + "---" + virtualBarHeight, Toast.LENGTH_LONG).show();
-        Looper.loop();
+        Log.i("QlkDisplayUtilTest", "testLandscape: width=" + width);
+        Log.i("QlkDisplayUtilTest", "testLandscape: height=" + height);
+        Log.i("QlkDisplayUtilTest", "testLandscape: realWidth=" + realWidth);
+        Log.i("QlkDisplayUtilTest", "testLandscape: realHeight=" + realHeight);
+        Log.i("QlkDisplayUtilTest", "testLandscape: statusBarHeight=" + statusBarHeight);
+        Log.i("QlkDisplayUtilTest", "testLandscape: virtualBarHeight=" + virtualBarHeight);
     }
 
     @Test
@@ -46,9 +48,12 @@ public class QlkDisplayUtilTest {
         int realHeight = QlkDisplayUtil.getScreenHeight(appContext);
         int statusBarHeight = QlkDisplayUtil.getStatusBarHeight(appContext);
         int virtualBarHeight = QlkDisplayUtil.getVirtualBarHeight(appContext);
-        Looper.prepare();
-        Toast.makeText(appContext, width + "---" + height + "---" + realWidth + "---" + realHeight + "---" + statusBarHeight + "---" + virtualBarHeight, Toast.LENGTH_LONG).show();
-        Looper.loop();
+        Log.i("QlkDisplayUtilTest", "testPortrait: width=" + width);
+        Log.i("QlkDisplayUtilTest", "testPortrait: height=" + height);
+        Log.i("QlkDisplayUtilTest", "testPortrait: realWidth=" + realWidth);
+        Log.i("QlkDisplayUtilTest", "testPortrait: realHeight=" + realHeight);
+        Log.i("QlkDisplayUtilTest", "testPortrait: statusBarHeight=" + statusBarHeight);
+        Log.i("QlkDisplayUtilTest", "testPortrait: virtualBarHeight=" + virtualBarHeight);
     }
 
 }

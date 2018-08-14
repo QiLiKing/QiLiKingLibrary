@@ -57,6 +57,9 @@ public class QlkDisplayUtil {
         return result;
     }
 
+    /**
+     * Its location does not change whether the screen in portrait or landscape mode.
+     */
     public static int getVirtualBarHeight(Context context) {
         int height = getScreenHeight(context) - getDisplayHeight(context);
         if (height <= 0) {
@@ -66,7 +69,9 @@ public class QlkDisplayUtil {
     }
 
     /**
-     * Include the virtual bar
+     * the full screen width<br/>
+     * portrait: include app container<br/>
+     * landscape: include status-bar and app container<br/>
      *
      * @return 0 failure
      */
@@ -87,7 +92,11 @@ public class QlkDisplayUtil {
     }
 
     /**
-     * @return the width our app can use
+     * the width in use<br/>
+     * portrait: include app container<br/>
+     * landscape: include app container<br/>
+     *
+     * @return 0 failure
      */
     public static int getDisplayWidth(Context context) {
         WindowManager wm = (WindowManager) context
@@ -101,7 +110,9 @@ public class QlkDisplayUtil {
     }
 
     /**
-     * Include the virtual bar
+     * the full screen height<br/>
+     * portrait: include virtual-bar, status-bar and app container<br/>
+     * landscape: include status-bar and app container<br/>
      *
      * @return 0 failure
      */
@@ -122,7 +133,11 @@ public class QlkDisplayUtil {
     }
 
     /**
-     * @return the width our app can use
+     * the height in use<br/>
+     * portrait: include status-bar and app container<br/>
+     * landscape: include status-bar and app container<br/>
+     *
+     * @return 0 failure
      */
     public static int getDisplayHeight(Context context) {
         WindowManager wm = (WindowManager) context
