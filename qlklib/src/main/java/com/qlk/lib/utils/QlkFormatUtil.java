@@ -1,18 +1,10 @@
 package com.qlk.lib.utils;
 
-import android.content.Context;
-import android.text.Html;
-import android.text.TextUtils;
-import android.text.format.Formatter;
-import android.util.SparseArray;
-
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * <br/>
@@ -20,10 +12,24 @@ import java.util.regex.Pattern;
  * Created by QiLiKing on 2018/8/14 11:41
  */
 public class QlkFormatUtil {
-    public static final long SECOND = 1000;
-    public static final long MINUTE = 60 * SECOND;
-    public static final long HOUR = 60 * MINUTE;
-    public static final long DAY = 24 * HOUR;
+    public static final String PATTERN_YEAR = "yyyy";
+    public static final String PATTERN_YEAR_SIMPLE = "yy";
+    public static final String PATTERN_MONTH = "MM";
+    public static final String PATTERN_DAY = "dd";
+    public static final String PATTERN_HOUR = "HH";
+    public static final String PATTERN_MINUTE = "mm";
+    public static final String PATTERN_SECOND = "ss";
+    public static final String PATTERN_MILLISECOND = "SSS";
+    public static final String PATTERN_CHINESE_DATE = "yyyy年MM月dd日";
+    public static final String PATTERN_CHINESE_TIME = "HH时mm分ss秒";
+    public static final String PATTERN_CHINESE_DATE_TIME = "yyyy年MM月dd日 HH时mm分ss秒";
+    public static final String PATTERN_DEFAULT_DATE = "yyyy-MM-dd";
+    public static final String PATTERN_DEFAULT_TIME = "HH:mm:ss";
+    public static final String PATTERN_DEFAULT_DATE_TIME = "yyyy-MM-dd HH:mm:ss";
+    public static final long TIME_PEER_SECOND = 1000;
+    public static final long TIME_PEER_MINUTE = 60 * TIME_PEER_SECOND;
+    public static final long TIME_PEER_HOUR = 60 * TIME_PEER_MINUTE;
+    public static final long TIME_PEER_DAY = 24 * TIME_PEER_HOUR;
 
     public static String formatTimeToDescribe(Date date) {
         return formatTimeToDescribe(date.getTime());
@@ -112,6 +118,14 @@ public class QlkFormatUtil {
         return formatYMDHms(millTime.getTime());
     }
 
+    public static String formatYMDHmsS(long millTime) {
+        return formatDate(millTime, "yyyy-MM-dd HH:mm:ss:SSS");
+    }
+
+    public static String formatYMDHmsS(Date millTime) {
+        return formatYMDHmsS(millTime.getTime());
+    }
+
     /**
      * @param millTime 微秒
      * @param format   默认格式 yyyy-MM-dd HH:mm:ss
@@ -130,17 +144,17 @@ public class QlkFormatUtil {
     private static final SimpleDateFormat FORMATTER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 
     public static String formatCountdownTime(long milliseconds) {
-        if (milliseconds > DAY) {
-            return String.format(Locale.CHINA, "%d天 %02d:%02d:%02d", milliseconds / DAY, milliseconds / HOUR %
-                    24, milliseconds / MINUTE % 60, milliseconds / SECOND % 60);
-        } else if (milliseconds > HOUR) {
-            return String.format(Locale.CHINA, "%02d:%02d:%02d", milliseconds / HOUR % 24, milliseconds / MINUTE
-                    % 60, milliseconds / SECOND % 60);
+        if (milliseconds > TIME_PEER_DAY) {
+            return String.format(Locale.CHINA, "%d天 %02d:%02d:%02d", milliseconds / TIME_PEER_DAY, milliseconds / TIME_PEER_HOUR %
+                    24, milliseconds / TIME_PEER_MINUTE % 60, milliseconds / TIME_PEER_SECOND % 60);
+        } else if (milliseconds > TIME_PEER_HOUR) {
+            return String.format(Locale.CHINA, "%02d:%02d:%02d", milliseconds / TIME_PEER_HOUR % 24, milliseconds / TIME_PEER_MINUTE
+                    % 60, milliseconds / TIME_PEER_SECOND % 60);
         } else {
             if (milliseconds < 0) {
                 milliseconds = 0;
             }
-            return String.format(Locale.CHINA, "%02d:%02d", milliseconds / MINUTE % 60, milliseconds / SECOND % 60);
+            return String.format(Locale.CHINA, "%02d:%02d", milliseconds / TIME_PEER_MINUTE % 60, milliseconds / TIME_PEER_SECOND % 60);
         }
     }
 
