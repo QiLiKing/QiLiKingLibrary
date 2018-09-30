@@ -1,14 +1,14 @@
 package com.qlk.demo;
 
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
 
-import com.qlk.lib.media.maker.QlkSelectActivity;
+import com.qlk.lib.recycler.RecyclerManager;
 
 public class MainActivity extends AppCompatActivity {
+    private RecyclerManager<UserInfo> mRecyclerManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,13 +18,7 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.i("MainActivity", "onCreate: " + findViewById(R.id.text).getHeight());
-            }
-        }, 1000);
-
-        startActivity(new QlkSelectActivity.Builder(this).defaultBuild());
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        mRecyclerManager = RecyclerManager.with(this,recyclerView).
     }
 }
