@@ -32,6 +32,7 @@ public class DoubleFormatterTest {
         assertFalse(formatter.isLawful("-s1.1e1011e"));
         assertFalse(formatter.isLawful("as"));
         assertFalse(formatter.isLawful("a1.01s"));
+
     }
 
     @Test
@@ -51,6 +52,10 @@ public class DoubleFormatterTest {
         assertEquals("1", formatter.format("adf+1.dfdff1.23df"));
         assertEquals("1", formatter.format("adf1.dfdff1.23df"));
         assertEquals("1.35", formatter.format("adf1.35dfdff1.23df"));
+        assertEquals("1350", formatter.format("adf1.35e3dfdff1.23df"));
+        assertEquals("1.35", formatter.format("adf1.35edfdff1.23df"));
+        assertEquals("1.35", formatter.format("adf1.35e0dfdff1.23df"));
+        assertEquals("13.5", formatter.format("adf1.35e01dfdff1.23df"));
     }
 
     @Test

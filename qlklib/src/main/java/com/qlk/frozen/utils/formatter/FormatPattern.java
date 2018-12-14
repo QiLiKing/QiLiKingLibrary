@@ -28,7 +28,7 @@ public final class FormatPattern {
      * 0~∞位小数
      */
     //注意这里的E,e匹配，要放在\d*之前，否则会导致匹配失败，比如“-1.13e4”
-    public static final String DecimalRegular = "[+,-]?(\\d+\\.?\\d*|\\d*\\.\\d+)([e,E][+,-]?\\d{0,3}|\\d*)";    //Double最大到E302,最小E324,但不知道怎么限制，就匹配三位数吧。
+    public static final String DecimalRegular = "[+,-]?(\\d+\\.?\\d*|\\d*\\.\\d+)([e,E][+,-]?\\d{1,3}|\\d*)";    //Double最大到E302,最小E324,但不知道怎么限制，就匹配三位数吧。
     public static final Pattern DecimalPattern = Pattern.compile(DecimalRegular);
 
     /**
