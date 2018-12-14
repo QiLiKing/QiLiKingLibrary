@@ -7,6 +7,7 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
 
+import com.qlk.frozen.utils.formatter.number.DigitFormatter;
 import com.qlk.frozen.utils.formatter.number.NumberFormatter;
 import com.qlk.frozen.utils.formatter.number.NumberFormatterCase;
 
@@ -54,7 +55,7 @@ public class FormatManager {
 
     /**
      * @return "" or a number string
-     * @see FormatManager#trimDotIfNumber(Object)
+     * @see FormatManager#trimDot(String)
      */
     @NonNull
     public static CharSequence formatNumber(@Nullable Object o, @NonNull Class<? extends Number> cls) {
@@ -134,13 +135,13 @@ public class FormatManager {
     }
 
     @NonNull
-    public static CharSequence formatDigit(@Nullable Object o, @NumberFormatter.DigitFormatter.DigitalRange int digit) {
+    public static CharSequence formatDigit(@Nullable Object o, @DigitFormatter.DigitalRange int digit) {
         if (digit == 2) {
             return PriceCase.formatter.format(checkNull(o));
         } else if (digit == 3) {
             return WeightCase.formatter.format(checkNull(o));
         } else {
-            return new NumberFormatter.DigitFormatter(digit).format(checkNull(o));
+            return new DigitFormatter(digit).format(checkNull(o));
         }
     }
 
@@ -164,13 +165,13 @@ public class FormatManager {
      * @return 0 or the specified digital number.
      */
     @NonNull
-    public static Double toDigit(@Nullable Object o, @NumberFormatter.DigitFormatter.DigitalRange int digit) {
+    public static Double toDigit(@Nullable Object o, @DigitFormatter.DigitalRange int digit) {
         if (digit == 2) {
             return (Double) PriceCase.formatter.toNumber(checkNull(o));
         } else if (digit == 3) {
             return (Double) WeightCase.formatter.toNumber(checkNull(o));
         } else {
-            return new NumberFormatter.DigitFormatter(digit).toNumber(checkNull(o));
+            return new DigitFormatter(digit).toNumber(checkNull(o));
         }
     }
 
@@ -249,31 +250,26 @@ public class FormatManager {
         return sb.toString();
     }
 
-    /**
-     * @return 如果是数字，则只保留整数部分；不是则返回trim.toString()形式；如果是null，则返回""；如果是科学计数法，则返回正常的数字字符串
-     */
     @NonNull
-    public static String trimDotIfNumber(Object trim) {
-        String s = DoubleCase.formatter.format(checkNull(trim)).toString();
-        if (TextUtils.isEmpty(s)) { //null或者非Number
+    public static String trimDot(@Nullable String plainNumber) {
+        if (TextUtils.isEmpty(plainNumber)) {
             return "";
-        } else if (s.contains(".")) {   //小数形式
-            for (int end = s.length() - 1; end >= 0; end--) {
-                char c = s.charAt(end);
+        } else if (plainNumber.contains(".")) {   //小数形式
+            for (int end = plainNumber.length() - 1; end >= 0; end--) {
+                char c = plainNumber.charAt(end);
                 if (c == '.') {
-                    s = s.substring(0, end);    //不保留小数点
+                    plainNumber = plainNumber.substring(0, end);    //不保留小数点
                     break;
                 }
                 if (c != '0') {
-                    s = s.substring(0, end + 1);
+                    plainNumber = plainNumber.substring(0, end + 1);
                     break;
                 }
             }
-            return s;
+            return plainNumber;
         } else {    //整数形式
-            return s;
+            return plainNumber;
         }
     }
-
 
 }

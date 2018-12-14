@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
  * Created by QiLiKing on 2018/12/12 12:11
  */
 public enum NumberFormatterCase {
-    ShortCase(new NumberFormatter.ShortFormatter(), false), IntegerCase(new NumberFormatter.IntegerFormatter(), false), LongCase(new NumberFormatter.LongFormatter(), false), FloatCase(new NumberFormatter.FloatFormatter(), true), DoubleCase(new NumberFormatter.DoubleFormatter(), true), PriceCase(new NumberFormatter.PriceFormatter(), true), WeightCase(new NumberFormatter.WeightFormatter(), true);
+    ShortCase(new ShortFormatter(), false), IntegerCase(new IntegerFormatter(), false), LongCase(new LongFormatter(), false), FloatCase(new FloatFormatter(), true), DoubleCase(new DoubleFormatter(), true), PriceCase(new DigitFormatter.PriceFormatter(), true), WeightCase(new DigitFormatter.WeightFormatter(), true);
 
     public boolean isDecimal;
     public final NumberFormatter formatter;
@@ -62,21 +62,21 @@ public enum NumberFormatterCase {
     }
 
     @Nullable
-    public static NumberFormatter.DigitFormatter getDigitalFormatter(@NumberFormatter.DigitFormatter.DigitalRange int digital) {
+    public static DigitFormatter getDigitalFormatter(@DigitFormatter.DigitalRange int digital) {
         if (digital == 2) {
-            return (NumberFormatter.DigitFormatter) PriceCase.formatter;
+            return (DigitFormatter) PriceCase.formatter;
         } else if (digital == 3) {
-            return (NumberFormatter.DigitFormatter) WeightCase.formatter;
+            return (DigitFormatter) WeightCase.formatter;
         } else {
-            return new NumberFormatter.DigitFormatter(digital);
+            return new DigitFormatter(digital);
         }
     }
 
-    public static NumberFormatter.PriceFormatter getPriceFormatter() {
-        return (NumberFormatter.PriceFormatter) PriceCase.formatter;
+    public static DigitFormatter.PriceFormatter getPriceFormatter() {
+        return (DigitFormatter.PriceFormatter) PriceCase.formatter;
     }
 
-    public static NumberFormatter.WeightFormatter getWeightFormatter() {
-        return (NumberFormatter.WeightFormatter) WeightCase.formatter;
+    public static DigitFormatter.WeightFormatter getWeightFormatter() {
+        return (DigitFormatter.WeightFormatter) WeightCase.formatter;
     }
 }

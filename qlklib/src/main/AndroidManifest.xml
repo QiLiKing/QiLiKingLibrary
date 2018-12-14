@@ -7,4 +7,9 @@
             android:name="com.qlk.frozen.media.maker.QlkSelectActivity"
             android:screenOrientation="portrait" />
     </application>
+
+    <!--android:name="com.android.test.runner.MultiDexTestRunner"-->
+    <!--<instrumentation-->
+        <!--android:name="android.test.AndroidJUnitRunner"-->
+        <!--android:targetPackage="com.qlk.frozen" />-->
 </manifest>

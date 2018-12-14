@@ -17,5 +17,5 @@ public interface IDigitFormatter {
     /**
      * @return 自定义返回小数点位数
      */
-    double toDigit(@Nullable CharSequence text, @NumberFormatter.DigitFormatter.DigitalRange int digit);
+    double toDigit(@Nullable CharSequence text, @DigitFormatter.DigitalRange int digit);
 }
