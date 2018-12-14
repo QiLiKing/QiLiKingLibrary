@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.qlk.frozen.utils.formatter.FormatManager;
-import com.qlk.frozen.utils.formatter.FormatPattern;
 
 import java.math.BigDecimal;
 

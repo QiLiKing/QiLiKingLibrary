@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import com.qlk.frozen.utils.formatter.FormatPattern;
+import com.qlk.frozen.utils.formatter.FormatterPattern;
 
 /**
  * <br/>
@@ -48,7 +48,7 @@ public class LongFormatter extends NumberFormatter<Long> {
                     }
                 } catch (Exception e1) {
                     //图文混合
-                    return format(FormatPattern.findFirst(text, FormatPattern.DecimalRegular));
+                    return format(FormatterPattern.findFirst(text, NumberFormatterPattern.DecimalRegular));
                 }
             }
             return super.format(String.valueOf(l)); //防止科学计数法

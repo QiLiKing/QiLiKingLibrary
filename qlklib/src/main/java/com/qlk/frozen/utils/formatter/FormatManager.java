@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
 
 import com.qlk.frozen.utils.formatter.number.DigitFormatter;
+import com.qlk.frozen.utils.formatter.number.NumberFormatterPattern;
 import com.qlk.frozen.utils.formatter.number.NumberFormatter;
 import com.qlk.frozen.utils.formatter.number.NumberFormatterCase;
 
@@ -15,7 +16,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.qlk.frozen.utils.ObjectUtil.checkNull;
-import static com.qlk.frozen.utils.formatter.number.NumberFormatterCase.DoubleCase;
 import static com.qlk.frozen.utils.formatter.number.NumberFormatterCase.PriceCase;
 import static com.qlk.frozen.utils.formatter.number.NumberFormatterCase.WeightCase;
 
@@ -184,7 +184,7 @@ public class FormatManager {
     public static CharSequence formatFirstSmartDecimal(Object o,/* px value */ int dftSize) {
         String non = checkNull(o);
         SpannableString spanString = new SpannableString(non);
-        Matcher matcher = Pattern.compile(FormatPattern.NumberRegular).matcher(non);
+        Matcher matcher = Pattern.compile(NumberFormatterPattern.NumberRegular).matcher(non);
         if (matcher.find()) {
             int start = matcher.start(1);
             int end = matcher.end(1);
@@ -201,7 +201,7 @@ public class FormatManager {
     public static CharSequence formatAllSmartDecimal(Object o,/* px value */ int dftSize) {
         String non = checkNull(o);
         SpannableString spanString = new SpannableString(non);
-        Matcher matcher = Pattern.compile(FormatPattern.NumberRegular).matcher(non);
+        Matcher matcher = Pattern.compile(NumberFormatterPattern.NumberRegular).matcher(non);
         while (matcher.find()) {
             int start = matcher.start(1);
             int end = matcher.end(1);
@@ -218,7 +218,7 @@ public class FormatManager {
     public static String formatFirstDigit(Object o, int digit) {
         String non = checkNull(o);
         StringBuilder sb = new StringBuilder(non);
-        Pattern pattern = Pattern.compile(FormatPattern.getDigitRegular(digit));
+        Pattern pattern = Pattern.compile(NumberFormatterPattern.getDigitRegular(digit));
         Matcher matcher = pattern.matcher(sb.toString());
         if (matcher.find()) {
             int cutStart = matcher.end(1);
@@ -235,7 +235,7 @@ public class FormatManager {
     public static String formatAllDigit(Object o, int digit) {
         String non = checkNull(o);
         StringBuilder sb = new StringBuilder(non);
-        Pattern pattern = Pattern.compile(FormatPattern.getDigitRegular(digit));
+        Pattern pattern = Pattern.compile(NumberFormatterPattern.getDigitRegular(digit));
         int cutStart = 0;
         while (true) {
             Matcher matcher = pattern.matcher(sb.toString());

@@ -5,11 +5,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import com.qlk.frozen.utils.formatter.FormatPattern;
+import com.qlk.frozen.utils.formatter.FormatterPattern;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -29,7 +28,7 @@ public class DigitFormatter extends DoubleFormatter implements IDigitFormatter {
 
     public DigitFormatter(@DigitalRange int digit) {
         this.digit = digit;
-        DigitPattern = Pattern.compile(FormatPattern.getDigitRegular(digit));
+        DigitPattern = Pattern.compile(NumberFormatterPattern.getDigitRegular(digit));
     }
 
     /**
@@ -105,7 +104,7 @@ public class DigitFormatter extends DoubleFormatter implements IDigitFormatter {
         if (digit == this.digit) {
             return toDigit(text);
         } else if (digit < this.digit) {
-            CharSequence find = FormatPattern.findFirst(format(text), FormatPattern.getDigitRegular(digit));
+            CharSequence find = FormatterPattern.findFirst(format(text), NumberFormatterPattern.getDigitRegular(digit));
             return TextUtils.isEmpty(find) ? 0 : Double.parseDouble(find.toString());
         } else {
             return new com.qlk.frozen.utils.formatter.number.DigitFormatter(digit).toDigit(text); //需要重新format

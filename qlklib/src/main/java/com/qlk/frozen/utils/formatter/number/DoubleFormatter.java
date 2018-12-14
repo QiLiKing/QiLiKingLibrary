@@ -3,9 +3,8 @@ package com.qlk.frozen.utils.formatter.number;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
 
-import com.qlk.frozen.utils.formatter.FormatPattern;
+import com.qlk.frozen.utils.formatter.FormatterPattern;
 
 /**
  * <br/>
@@ -46,7 +45,7 @@ public class DoubleFormatter extends NumberFormatter<Double> {
                 }
                 return super.format(String.valueOf(d));
             } catch (Exception e) {
-                return format(FormatPattern.findFirst(text, FormatPattern.DecimalRegular));
+                return format(FormatterPattern.findFirst(text, NumberFormatterPattern.DecimalRegular));
             }
         }
         return "";
