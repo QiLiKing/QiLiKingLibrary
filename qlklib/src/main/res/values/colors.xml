@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+
+    <color name="green_1_dark_8fad4f">#8fad4f</color>
+    <color name="green_dark_008137">#008137</color>
+    <color name="v2_green_dark">#77ad4f</color>
+    <color name="green_1_light_85ad4f">#85ad4f</color>
+    <color name="gray_light_cccccc">#cccccc</color>
+    <color name="gray_light_eeeeee">#eeeeee</color>
+    <color name="gray_light_afeeeeee">#afeeeeee</color>
+    <color name="gray_normal_999999">#999999</color>
+    <color name="gray_normal_b2b2b2">#b2b2b2</color>
+    <color name="gray_normal_bfbfbf">#bfbfbf</color>
+    <color name="dark_333333">#333333</color>
+    <color name="gray_dark_666666">#666666</color>
+    <color name="red_e16043">#e16043</color>
+    <color name="background_color">#f5f5f5</color>
+    <color name="green_dark_00803a">#00803a</color>
+    <color name="white">#ffffffff</color>
+    <color name="white_light">#aaffffff</color>
+    <color name="transparent_light">#18000000</color>
+    <color name="divider_color">#eeeeee</color>
+    <color name="orange_light">#E9C240</color>
+    <color name="gray">#777777</color>
+
+    <color name="pwk_primary_color">@color/green_1_light_85ad4f</color>
+    <!--确定按键按下时的颜色-->
+    <color name="pwk_primary_dark_color">@color/green_dark</color>
+</resources>

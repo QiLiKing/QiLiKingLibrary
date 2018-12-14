@@ -1,0 +1,153 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/green_1_light_85ad4f</item>
+        <item name="colorPrimaryDark">@color/green_1_dark_8fad4f</item>
+        <item name="colorAccent">@color/green_1_light_85ad4f</item>
+        <item name="android:windowBackground">@color/white</item>
+        <!--toolbar菜单项图标的颜色-->
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="windowActionBar">false</item>
+        <!--<item name="android:textColor">@color/white</item>-->
+        <!--<item name="android:dropDownListViewStyle">@style/MyListViewStyle</item>-->
+        <!--<item name="android:popupMenuStyle">@style/MyPopupMenu</item>-->
+        <!--<item name="android:textAppearanceSmallPopupMenu">@style/MyTextAppearance</item>-->
+        <!--<item name="android:textAppearanceLargePopupMenu">@style/MyTextAppearance</item>-->
+    </style>
+
+    <style name="FullTheme" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="MyTextAppearance">
+        <item name="android:textColor">@color/dark_333333</item>
+        <item name="android:textSize">@dimen/text_xhpi_24px</item>
+    </style>
+
+    <style name="MyListViewStyle">
+        <item name="android:divider">@color/gray_light_cccccc</item>
+        <item name="android:dividerHeight">1px</item>
+    </style>
+
+    <style name="MyPopupMenu">
+        <item name="android:popupBackground">@color/white</item>
+    </style>
+
+    <style name="text_style">
+        <item name="android:textColor">@color/egg_color_gray_dark_6a6a6a</item>
+        <item name="android:textSize">20sp</item>
+
+    </style>
+
+    <style name="text_xhdpi_28px">
+        <item name="android:background">@null</item>
+        <item name="android:textSize">@dimen/text_xhpi_28px</item>
+        <item name="android:textColorHint">@color/gray_light_cccccc</item>
+        <item name="android:textColor">@color/gray_dark</item>
+    </style>
+
+    <style name="text_xhdpi_28px_single_line" parent="text_xhdpi_28px">
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="text_xhdpi_32px">
+        <item name="android:background">@null</item>
+        <item name="android:textSize">@dimen/text_xhpi_32px</item>
+        <item name="android:textColorHint">@color/gray_light_cccccc</item>
+        <item name="android:textColor">@color/gray_dark</item>
+    </style>
+
+    <style name="text_xhdpi_32px_single_line" parent="text_xhdpi_32px">
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="no_frame_small_home_input_price" parent="no_frame_small">
+        <item name="android:layout_width">@dimen/xhpi_360px</item>
+        <item name="android:layout_height">@dimen/xhpi_266px</item>
+    </style>
+
+    <declare-styleable name="v2_mine_layout">
+        <attr name="icon" format="reference" />
+        <attr name="title" format="string" />
+    </declare-styleable>
+
+    <style name="tab_text_appearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/text_xhpi_28px</item>
+        <!--<item name="android:paddingTop">@dimen/_5dp</item>-->
+        <!--<item name="android:paddingBottom">@dimen/_5dp</item>-->
+    </style>
+
+    <style name="HomeToolbar" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/green_1_light_85ad4f</item>
+        <item name="android:id">@id/toolbar</item>
+        <item name="titleTextColor">@color/white</item>
+    </style>
+
+    <style name="MyToolbar" parent="HomeToolbar">
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="navigationIcon">@drawable/ic_nav_back_24dp</item>
+    </style>
+
+    <style name="HorizontalDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/divider_size</item>
+        <item name="android:background">@color/divider_color</item>
+    </style>
+
+    <style name="VerticalDivider">
+        <item name="android:layout_width">@dimen/divider_size</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/divider_color</item>
+    </style>
+
+    <style name="ConfirmButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/item_height</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/xml_color_counter_increase</item>
+        <item name="android:textSize">@dimen/size_big</item>
+    </style>
+
+    <style name="HorizontalConfirmButton" parent="ConfirmButton">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="single_line_end">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="normal_dark" parent="single_line_end">
+        <item name="android:textSize">@dimen/size_normal</item>
+        <item name="android:textColor">@color/dark_333333</item>
+    </style>
+
+    <style name="normal_gray" parent="single_line_end">
+        <item name="android:textSize">@dimen/size_normal</item>
+        <item name="android:textColor">@color/gray_dark</item>
+    </style>
+
+    <style name="small_dark" parent="single_line_end">
+        <item name="android:textSize">@dimen/size_small</item>
+        <item name="android:textColor">@color/dark_333333</item>
+    </style>
+
+    <style name="small_gray" parent="single_line_end">
+        <item name="android:textSize">@dimen/size_small</item>
+        <item name="android:textColor">@color/gray_dark</item>
+    </style>
+
+    <!--输入框按键样式，最左最右键样式设置-->
+    <style name="PWKInputItemStyleKey" parent="PWKInputItemStyle_FILLED_KEY"/>
+    <!--输入框外部样式-->
+    <style name="PWKInputViewStyle" parent="PWKInputViewStyle_DIVIDED"/>
+</resources>

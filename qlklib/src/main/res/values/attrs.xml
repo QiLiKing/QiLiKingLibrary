@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="InputLayout">
+        <attr name="select_title" format="string" />
+        <attr name="select_title_color" format="color" />
+        <attr name="select_title_size" format="dimension" />
+        <attr name="select_titleLeftIcon" format="reference" />
+        <attr name="select_titleRightIcon" format="reference" />
+        <attr name="select_titleLeftImage" format="reference" />
+        <attr name="select_title_text_style" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="italic" value="2" />
+            <enum name="boldItalic" value="3" />
+        </attr>
+
+        <!--拥有输入能力-->
+        <attr name="select_content" format="string" />
+        <attr name="select_contentHint" format="string" />
+        <attr name="select_content_color" format="color" />
+        <attr name="select_content_size" format="dimension" />
+        <attr name="select_contentLeftImage" format="reference" />
+        <attr name="select_content_text_style" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="italic" value="2" />
+            <enum name="boldItalic" value="3" />
+        </attr>
+        <attr name="select_formatter_type" format="enum">
+            <enum name="number" value="0" />
+            <enum name="short" value="1" />
+            <enum name="int" value="2" />
+            <enum name="long" value="3" />
+            <enum name="float" value="4" />
+            <enum name="double" value="5" />
+            <enum name="price" value="6" />
+            <enum name="weight" value="7" />
+        </attr>
+
+        <!--只有展示能力，位于content下方-->
+        <attr name="select_sub_content" format="string" />
+        <attr name="select_sub_content_color" format="color" />
+        <attr name="select_sub_content_size" format="dimension" />
+        <attr name="select_sub_content_text_style" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="italic" value="2" />
+            <enum name="boldItalic" value="3" />
+        </attr>
+
+        <attr name="select_display_text" format="string" />
+        <attr name="select_display_text_size" format="dimension" />
+        <attr name="select_display_text_color" format="color" />
+
+        <attr name="select_display_image" format="reference" />
+        <attr name="select_display_image_visibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+
+        <attr name="select_vertical_padding" format="dimension" />
+        <attr name="select_horizontal_padding" format="dimension" />
+        <attr name="select_show_item_bottom_divider" format="boolean" />
+        <attr name="select_show_item_top_divider" format="boolean" />
+        <attr name="select_layout_style" format="enum">
+            <enum name="small" value="0" />
+            <enum name="normal" value="1" />
+            <enum name="big" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SelectLayout">
+        <attr name="select_action_text" format="string" />
+        <attr name="select_action_image" format="reference" />
+        <attr name="select_action_image_visibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="4" />
+            <enum name="gone" value="8" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CounterLayout">
+        <attr name="peer" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="SwitcherLayout">
+        <attr name="select_checked" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="ratio" format="float" />
+    </declare-styleable>
+</resources>

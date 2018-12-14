@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_bar_size">10sp</dimen>
+    <dimen name="title_bar_more_size">8sp</dimen>
+    <dimen name="upos_print_size">10sp</dimen>
+
+    <dimen name="xhpi_2px">1dp</dimen>
+    <dimen name="xhpi_4px">2dp</dimen>
+    <dimen name="xhpi_6px">3dp</dimen>
+    <dimen name="xhpi_8px">4dp</dimen>
+    <dimen name="xhpi_10px">5dp</dimen>
+    <dimen name="xhpi_12px">6dp</dimen>
+    <dimen name="xhpi_16px">8dp</dimen>
+    <dimen name="xhpi_18px">9dp</dimen>
+    <dimen name="xhpi_20px">10dp</dimen>
+    <dimen name="xhpi_22px">11dp</dimen>
+    <dimen name="xhpi_24px">12dp</dimen>
+    <dimen name="xhpi_28px">14dp</dimen>
+    <dimen name="xhpi_30px">15dp</dimen>
+    <dimen name="xhpi_32px">16dp</dimen>
+    <dimen name="xhpi_36px">18dp</dimen>
+    <dimen name="xhpi_38px">19dp</dimen>
+    <dimen name="xhpi_40px">20dp</dimen>
+    <dimen name="xhpi_46px">23dp</dimen>
+    <dimen name="xhpi_48px">24dp</dimen>
+    <dimen name="xhpi_50px">25dp</dimen>
+    <dimen name="xhpi_54px">27dp</dimen>
+    <dimen name="xhpi_58px">29dp</dimen>
+    <dimen name="xhpi_60px">30dp</dimen>
+    <dimen name="xhpi_70px">35dp</dimen>
+    <dimen name="xhpi_80px">40dp</dimen>
+    <dimen name="xhpi_90px">45dp</dimen>
+    <dimen name="xhpi_92px">46dp</dimen>
+    <dimen name="xhpi_96px">48dp</dimen>
+    <dimen name="xhpi_100px">50dp</dimen>
+    <dimen name="xhpi_104px">52dp</dimen>
+    <dimen name="xhpi_106px">53dp</dimen>
+    <dimen name="xhpi_115px">57.5dp</dimen>
+    <dimen name="xhpi_126px">63dp</dimen>
+    <dimen name="xhpi_130px">65dp</dimen>
+    <dimen name="xhpi_154px">77dp</dimen>
+    <dimen name="xhpi_160px">80dp</dimen>
+    <dimen name="xhpi_168px">84dp</dimen>
+    <dimen name="xhpi_180px">90dp</dimen>
+    <dimen name="xhpi_228px">114dp</dimen>
+    <dimen name="xhpi_236px">118dp</dimen>
+    <dimen name="xhpi_256px">128dp</dimen>
+    <dimen name="xhpi_266px">133dp</dimen>
+    <dimen name="xhpi_270px">135dp</dimen>
+    <dimen name="xhpi_280px">140dp</dimen>
+    <dimen name="xhpi_306px">140dp</dimen>
+    <dimen name="xhpi_350px">175dp</dimen>
+    <dimen name="xhpi_354px">177dp</dimen>
+    <dimen name="xhpi_360px">180dp</dimen>
+    <dimen name="xhpi_520px">260dp</dimen>
+
+    <dimen name="text_xhpi_20px">10sp</dimen>
+    <dimen name="text_xhpi_24px">12sp</dimen>
+    <dimen name="text_xhpi_26px">13sp</dimen>
+    <dimen name="text_xhpi_28px">14sp</dimen>
+    <dimen name="text_xhpi_30px">15sp</dimen>
+    <dimen name="text_xhpi_32px">16sp</dimen>
+    <dimen name="text_xhpi_34px">17sp</dimen>
+    <dimen name="text_xhpi_36px">18sp</dimen>
+    <dimen name="text_xhpi_40px">20sp</dimen>
+
+    <dimen name="hpi_266px">133dp</dimen>
+    <dimen name="hpi_360px">180dp</dimen>
+    <dimen name="item_height">@dimen/xhpi_90px</dimen>
+    <dimen name="item_height_double">@dimen/xhpi_180px</dimen>
+    <dimen name="size_title">@dimen/text_xhpi_36px</dimen>
+    <dimen name="size_big">@dimen/text_xhpi_32px</dimen>
+    <dimen name="size_normal">@dimen/text_xhpi_28px</dimen>
+    <dimen name="size_small">@dimen/text_xhpi_24px</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="outer_margin">16dp</dimen>
+    <dimen name="inner_margin">10dp</dimen>
+    <dimen name="outer_margin_small">@dimen/inner_margin</dimen>
+    <dimen name="inner_margin_small">5dp</dimen>
+    <dimen name="divider_size">1dp</dimen>
+    <dimen name="drawable_padding">3dp</dimen>
+
+    <!--输入框字体大小-->
+    <dimen name="pwk_input_item_text_size">@dimen/size_normal</dimen>
+</resources>

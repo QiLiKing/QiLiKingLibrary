@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/input_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_height">
+
+    <ImageView
+        android:id="@+id/title_left_image"
+        android:layout_width="@dimen/outer_margin"
+        android:layout_height="match_parent"
+        android:padding="@dimen/drawable_padding"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <frozen.widget.FrzNoFontPaddingTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:drawablePadding="@dimen/drawable_padding"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textColor="@color/dark_333333"
+        android:textSize="@dimen/size_normal"
+        app:layout_constraintStart_toEndOf="@id/title_left_image" />
+
+    <View
+        android:id="@+id/title_content_space"
+        android:layout_width="@dimen/outer_margin"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/title" />
+
+    <View
+        android:id="@+id/ratio"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/content_start_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="ratio,title_content_space" />
+
+
+    <com.esuyuan.v4.template.FormatterEditText
+        android:id="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/inner_margin"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint=""
+        android:minWidth="100dp"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:textColor="@color/dark_333333"
+        android:textSize="@dimen/size_normal"
+        app:layout_constraintEnd_toStartOf="@+id/content_end_barrier"
+        app:layout_constraintStart_toEndOf="@id/content_start_barrier" />
+
+    <ImageView
+        android:id="@+id/content_left_image"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="@dimen/drawable_padding"
+        app:layout_constraintEnd_toStartOf="@id/content" />
+
+    <ViewStub
+        android:id="@+id/right_layout_stub"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:inflatedId="@id/right_layout_stub"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/right_space"
+        android:layout_width="@dimen/outer_margin"
+        android:layout_height="wrap_content" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/content_end_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="right_space,right_layout_stub" />
+
+    <View
+        android:id="@+id/item_top_divider"
+        style="@style/HorizontalDivider"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/item_bottom_divider"
+        style="@style/HorizontalDivider"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</android.support.constraint.ConstraintLayout>
