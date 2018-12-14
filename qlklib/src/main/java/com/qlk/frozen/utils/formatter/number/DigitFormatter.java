@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
  */
 public class DigitFormatter extends DoubleFormatter implements IDigitFormatter {
 
-    /* 325：double 的最大小数位 */
+    /* 308,324：double 的最大小数位 */
     @IntRange(from = 1, to = 325)
     public @interface DigitalRange {
     }

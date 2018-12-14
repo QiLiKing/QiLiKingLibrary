@@ -38,6 +38,7 @@ public class DigitFormatterTest {
         assertTrue(weightFormatter.isLawful("-1.1e-2"));
         assertTrue(weightFormatter.isLawful("-1.1e3"));
         assertFalse(weightFormatter.isLawful("-1.1e-3"));
+        assertFalse(weightFormatter.isLawful("-1.1e-1000"));
     }
 
     @Test

@@ -21,8 +21,10 @@ public class QlkIOUtilTest {
 
     @Test
     public void close() {
+        double d = Double.valueOf(".13e0");
+        System.out.println(d);
 //        "[+-]?(\\d*.\\d+|\\d+\\.?\\d*)"
-        Matcher matcher = Pattern.compile("[+-]?(\\d*\\.\\d+|\\d+)").matcher("adf1.dfdff1.23df");
+        Matcher matcher = Pattern.compile("[+,-]?(\\d+\\.?\\d*|\\d*\\.\\d+)([e,E][+,-]?[1-9]\\d{0,2})").matcher("-1.1e");
         int i = 0;
         while (matcher.find(i)) {
             System.out.println(matcher.group());
