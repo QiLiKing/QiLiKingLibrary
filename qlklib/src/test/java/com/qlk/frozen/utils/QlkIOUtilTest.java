@@ -6,6 +6,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static org.junit.Assert.*;
 
@@ -19,6 +21,15 @@ public class QlkIOUtilTest {
 
     @Test
     public void close() {
+//        "[+-]?(\\d*.\\d+|\\d+\\.?\\d*)"
+        Matcher matcher = Pattern.compile("[+-]?(\\d*\\.\\d+|\\d+)").matcher("adf1.dfdff1.23df");
+        int i = 0;
+        while (matcher.find(i)) {
+            System.out.println(matcher.group());
+            i = matcher.end();
+        }
+
+
         IOUtil.close();
 //        IOUtil.close(null); //error
         IOUtil.close(null, null);

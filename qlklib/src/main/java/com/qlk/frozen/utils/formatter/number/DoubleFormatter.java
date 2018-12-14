@@ -46,9 +46,7 @@ public class DoubleFormatter extends NumberFormatter<Double> {
                 }
                 return super.format(String.valueOf(d));
             } catch (Exception e) {
-                CharSequence fir = FormatPattern.findFirst(text, FormatPattern.DecimalRegular);
-                Log.i("DoubleFormatter", "format: " + fir);
-                return format(fir);
+                return format(FormatPattern.findFirst(text, FormatPattern.DecimalRegular));
             }
         }
         return "";

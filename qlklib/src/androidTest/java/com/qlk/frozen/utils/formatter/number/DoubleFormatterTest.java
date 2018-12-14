@@ -50,6 +50,7 @@ public class DoubleFormatterTest {
         assertEquals("-1", formatter.format("adf-1.dfdff1.23df"));
         assertEquals("1", formatter.format("adf+1.dfdff1.23df"));
         assertEquals("1", formatter.format("adf1.dfdff1.23df"));
+        assertEquals("1.35", formatter.format("adf1.35dfdff1.23df"));
     }
 
     @Test
@@ -61,6 +62,9 @@ public class DoubleFormatterTest {
         assertEquals(1.1, formatter.toNumber("1.1"), 0);
         assertEquals(-1.1, formatter.toNumber("-1.1"), 0);
         assertEquals(-1.1, formatter.toNumber("d-1.1dfdsf1.34dfe"), 0);
+        assertEquals(-0.1, formatter.toNumber("d-.1dfdsf1.34dfe"), 0);
+        assertEquals(0.1, formatter.toNumber("d.1dfdsf1.34dfe"), 0);
+        assertEquals(0.1, formatter.toNumber("d.1.dfdsf1.34dfe"), 0);
         assertEquals(-0.1, formatter.toNumber("-.1"), 0);
         assertEquals(-1.0, formatter.toNumber("f-1.ad1q"), 0);
         assertEquals(-1.1, formatter.toNumber("f-1.1q"), 0);
