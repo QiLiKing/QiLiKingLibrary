@@ -1,4 +1,4 @@
-package com.qlk.frozen.utils;
+package com.qlk.frozen.utils.formatter;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -11,7 +11,7 @@ import java.util.Locale;
  * QQ：1055329812<br/>
  * Created by QiLiKing on 2018/8/14 11:41
  */
-public class FrzFormatUtil {
+public class FormatUtil {
     public static final String PATTERN_YEAR = "yyyy";
     public static final String PATTERN_YEAR_SIMPLE = "yy";
     public static final String PATTERN_MONTH = "MM";

@@ -19,19 +19,19 @@ public class QlkIOUtilTest {
 
     @Test
     public void close() {
-        FrzIOUtil.close();
+        IOUtil.close();
 //        IOUtil.close(null); //error
-        FrzIOUtil.close(null, null);
+        IOUtil.close(null, null);
 
         InputStream is = null;
-        FrzIOUtil.close(is);
+        IOUtil.close(is);
     }
 
     @Test
     public void toByteArray() {
         InputStream is = new ByteArrayInputStream(BYTES);
         try {
-            byte[] b = FrzIOUtil.toByteArray(is);
+            byte[] b = IOUtil.toByteArray(is);
             assertArrayEquals(b, BYTES);
         } catch (IOException e) {
             e.printStackTrace();
@@ -43,7 +43,7 @@ public class QlkIOUtilTest {
         InputStream is = new ByteArrayInputStream(BYTES);
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         try {
-            long len = FrzIOUtil.copy(is, os);
+            long len = IOUtil.copy(is, os);
             assertEquals(len, BYTES.length);
             byte[] out = os.toByteArray();
             assertArrayEquals(out, BYTES);
@@ -56,7 +56,7 @@ public class QlkIOUtilTest {
     public void toStr() {
         InputStream is = new ByteArrayInputStream(BYTES);
         try {
-            assertEquals("b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`", FrzIOUtil.toString(is));
+            assertEquals("b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`b\u001A&18`", IOUtil.toString(is));
         } catch (IOException e) {
             e.printStackTrace();
         }

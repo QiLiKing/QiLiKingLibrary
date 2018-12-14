@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  * QQ：1055329812<br/>
  * Created by QiLiKing on 2018/8/14 14:09
  */
-public class FrzOtherUtils {
+public class Utils {
     /**
      * 名称是否合法
      */

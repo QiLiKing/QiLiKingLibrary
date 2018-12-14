@@ -16,7 +16,7 @@ import java.util.Iterator;
  * QQ：1055329812<br/>
  * Created by QiLiKing on 2018/8/9 17:23
  */
-public class FrzFileUtil {
+public class FileUtil {
     public static final String DOT = ".";
     public static final String HTTP = "http://";
     public static final String HTTPS = "https://";
@@ -150,7 +150,7 @@ public class FrzFileUtil {
 
     /**
      * @return Copy length. -1 copy failed
-     * @see FrzFileUtil#copyFile(String, String)
+     * @see FileUtil#copyFile(String, String)
      */
     public static long copyFileOld(String from, String to) {
         FileInputStream fis = null;
@@ -158,12 +158,12 @@ public class FrzFileUtil {
         try {
             fis = new FileInputStream(from);
             fos = new FileOutputStream(to);
-            return FrzIOUtil.copy(fis, fos);
+            return IOUtil.copy(fis, fos);
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
         } finally {
-            FrzIOUtil.close(fis, fos);
+            IOUtil.close(fis, fos);
         }
     }
 
@@ -245,7 +245,7 @@ public class FrzFileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            FrzIOUtil.close(fos);
+            IOUtil.close(fos);
         }
     }
 }

@@ -21,25 +21,25 @@ public class QlkDisplayUtilTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
         Log.i("QlkDisplayUtilTest", "testPxDpSp: density=" + appContext.getResources().getDisplayMetrics().density);
         Log.i("QlkDisplayUtilTest", "testPxDpSp: scaledDensity=" + appContext.getResources().getDisplayMetrics().scaledDensity);
-        Log.i("QlkDisplayUtilTest", "testPxDpSp: 38dp=" + FrzDisplayUtil.dp2px(appContext, 38));
-        Log.i("QlkDisplayUtilTest", "testPxDpSp: 100px=" + FrzDisplayUtil.px2dp(appContext, 100));
-        Log.i("QlkDisplayUtilTest", "testPxDpSp: 100px=" + FrzDisplayUtil.px2sp(appContext, 100));
-        Log.i("QlkDisplayUtilTest", "testPxDpSp: 38sp=" + FrzDisplayUtil.sp2px(appContext, 38));
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: 38dp=" + DisplayUtil.dp2px(appContext, 38));
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: 100px=" + DisplayUtil.px2dp(appContext, 100));
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: 100px=" + DisplayUtil.px2sp(appContext, 100));
+        Log.i("QlkDisplayUtilTest", "testPxDpSp: 38sp=" + DisplayUtil.sp2px(appContext, 38));
 
         int value = 40;
-        assertEquals(value, FrzDisplayUtil.px2dp(appContext, FrzDisplayUtil.dp2px(appContext, value)));
-        assertEquals(value, FrzDisplayUtil.px2sp(appContext, FrzDisplayUtil.sp2px(appContext, value)));
+        assertEquals(value, DisplayUtil.px2dp(appContext, DisplayUtil.dp2px(appContext, value)));
+        assertEquals(value, DisplayUtil.px2sp(appContext, DisplayUtil.sp2px(appContext, value)));
     }
 
     @Test
     public void testLandscape() {
         Context appContext = InstrumentationRegistry.getTargetContext();
-        int width = FrzDisplayUtil.getDisplayWidth(appContext);
-        int realWidth = FrzDisplayUtil.getScreenWidth(appContext);
-        int height = FrzDisplayUtil.getDisplayHeight(appContext);
-        int realHeight = FrzDisplayUtil.getScreenHeight(appContext);
-        int statusBarHeight = FrzDisplayUtil.getStatusBarHeight(appContext);
-        int virtualBarHeight = FrzDisplayUtil.getVirtualBarHeight(appContext);
+        int width = DisplayUtil.getDisplayWidth(appContext);
+        int realWidth = DisplayUtil.getScreenWidth(appContext);
+        int height = DisplayUtil.getDisplayHeight(appContext);
+        int realHeight = DisplayUtil.getScreenHeight(appContext);
+        int statusBarHeight = DisplayUtil.getStatusBarHeight(appContext);
+        int virtualBarHeight = DisplayUtil.getVirtualBarHeight(appContext);
         Log.i("QlkDisplayUtilTest", "testLandscape: width=" + width);
         Log.i("QlkDisplayUtilTest", "testLandscape: height=" + height);
         Log.i("QlkDisplayUtilTest", "testLandscape: realWidth=" + realWidth);
@@ -53,12 +53,12 @@ public class QlkDisplayUtilTest {
     @Test
     public void testPortrait() {
         Context appContext = InstrumentationRegistry.getTargetContext();
-        int width = FrzDisplayUtil.getDisplayWidth(appContext);
-        int realWidth = FrzDisplayUtil.getScreenWidth(appContext);
-        int height = FrzDisplayUtil.getDisplayHeight(appContext);
-        int realHeight = FrzDisplayUtil.getScreenHeight(appContext);
-        int statusBarHeight = FrzDisplayUtil.getStatusBarHeight(appContext);
-        int virtualBarHeight = FrzDisplayUtil.getVirtualBarHeight(appContext);
+        int width = DisplayUtil.getDisplayWidth(appContext);
+        int realWidth = DisplayUtil.getScreenWidth(appContext);
+        int height = DisplayUtil.getDisplayHeight(appContext);
+        int realHeight = DisplayUtil.getScreenHeight(appContext);
+        int statusBarHeight = DisplayUtil.getStatusBarHeight(appContext);
+        int virtualBarHeight = DisplayUtil.getVirtualBarHeight(appContext);
         Log.i("QlkDisplayUtilTest", "testPortrait: width=" + width);
         Log.i("QlkDisplayUtilTest", "testPortrait: height=" + height);
         Log.i("QlkDisplayUtilTest", "testPortrait: realWidth=" + realWidth);
