@@ -14,52 +14,34 @@
  limitations under the License.
  -->
 <resources>
-    <!-- Messages IDs -->
-    <item name="auto_focus" type="id" />
-    <item name="decode" type="id" />
-    <item name="decode_failed" type="id" />
-    <item name="decode_succeeded" type="id" />
-    <item name="encode_failed" type="id" />
-    <item name="encode_succeeded" type="id" />
-    <item name="launch_product_query" type="id" />
-    <item name="quit" type="id" />
-    <item name="restart_preview" type="id" />
-    <item name="return_scan_result" type="id" />
-    <item name="search_book_contents_failed" type="id" />
-    <item name="search_book_contents_succeeded" type="id" />
-
-
-    <item name="gridview" type="id" />
-    <item name="webview" type="id" />
-
-    <item name="about_version_code" type="id">false</item>
-    <item name="split" type="id">false</item>
-
-    <item name="toolbar" type="id" />
-    <item name="add" type="id" />
-    <item name="print" type="id" />
-    <item name="copy" type="id" />
-    <item name="search" type="id" />
-    <item name="exit" type="id" />
-    <item name="setting" type="id" />
-
-    <item name="input_layout" type="id" />
-    <item name="display_layout" type="id" />
-    <item name="select_layout" type="id" />
-    <item name="counter_layout" type="id" />
-    <item name="switcher_layout" type="id" />
-    <item name="select_input_layout" type="id" />
-    <item name="counter_input_layout" type="id" />
-    <item name="switcher_input_layout" type="id" />
-    <item name="right_layout_stub" type="id" />
-    <item name="input_root_view" type="id" />
-    <item name="display_root_view" type="id" />
-    <item name="select_root_view" type="id" />
-    <item name="counter_root_view" type="id" />
-    <item name="switcher_root_view" type="id" />
-
     <item name="horizontal_divider" type="id" />
     <item name="vertical_divider" type="id" />
     <item name="chart_container" type="id" />
     <item name="floating_action_button" type="id" />
+
+    <!--layout-->
+    <item name="layout_root_input" type="id" />
+    <item name="layout_root_display" type="id" />
+    <item name="layout_root_select" type="id" />
+    <item name="layout_root_counter" type="id" />
+    <item name="layout_root_switcher" type="id" />
+    <item name="layout_input_image_left" type="id" />
+    <item name="layout_input_image_top" type="id" />
+    <item name="layout_input_image_right" type="id" />
+    <item name="layout_input_image_bottom" type="id" />
+    <item name="layout_input_title" type="id" />
+    <item name="layout_input_content" type="id" />
+    <item name="layout_display_image" type="id" />
+    <item name="layout_display_title" type="id" />
+    <item name="layout_display_content" type="id" />
+    <item name="layout_select_image" type="id" />
+    <item name="layout_select_title" type="id" />
+    <item name="layout_select_content" type="id" />
+    <item name="layout_counter_image_decrease" type="id" />
+    <item name="layout_counter_image_increase" type="id" />
+    <item name="layout_counter_title" type="id" />
+    <item name="layout_counter_content" type="id" />
+    <item name="layout_switcher_image" type="id" />
+    <item name="layout_switcher_title" type="id" />
+    <item name="layout_switcher_content" type="id" />
 </resources>

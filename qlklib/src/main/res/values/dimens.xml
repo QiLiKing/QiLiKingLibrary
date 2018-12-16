@@ -80,6 +80,4 @@
     <dimen name="divider_size">1dp</dimen>
     <dimen name="drawable_padding">3dp</dimen>
 
-    <!--输入框字体大小-->
-    <dimen name="pwk_input_item_text_size">@dimen/size_normal</dimen>
 </resources>

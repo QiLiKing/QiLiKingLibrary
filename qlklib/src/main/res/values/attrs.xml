@@ -2,52 +2,56 @@
 <resources>
 
     <declare-styleable name="InputLayout">
-        <attr name="select_title" format="string" />
-        <attr name="select_title_color" format="color" />
-        <attr name="select_title_size" format="dimension" />
-        <attr name="select_titleLeftIcon" format="reference" />
-        <attr name="select_titleRightIcon" format="reference" />
-        <attr name="select_titleLeftImage" format="reference" />
-        <attr name="select_title_text_style" format="enum">
+        <attr name="layout_image_left" format="reference" />
+        <attr name="layout_image_top" format="reference" />
+        <attr name="layout_image_right" format="reference" />
+        <attr name="layout_image_bottom" format="reference" />
+        <attr name="layout_image_center" format="reference" />
+
+        <attr name="layout_title" format="string" />
+        <attr name="layout_title_color" format="color" />
+        <attr name="layout_title_size" format="dimension" />
+        <attr name="layout_title_drawable_left" format="reference" />
+        <attr name="layout_title_drawable_top" format="reference" />
+        <attr name="layout_title_drawable_right" format="reference" />
+        <attr name="layout_title_drawable_bottom" format="reference" />
+        <attr name="layout_title_text_style" format="enum">
             <enum name="normal" value="0" />
             <enum name="bold" value="1" />
             <enum name="italic" value="2" />
             <enum name="boldItalic" value="3" />
         </attr>
 
-        <!--拥有输入能力-->
-        <attr name="select_content" format="string" />
-        <attr name="select_contentHint" format="string" />
-        <attr name="select_content_color" format="color" />
-        <attr name="select_content_size" format="dimension" />
-        <attr name="select_contentLeftImage" format="reference" />
-        <attr name="select_content_text_style" format="enum">
+        <!--也可以叫SubTitle-->
+        <attr name="layout_content" format="string" />
+        <attr name="layout_content_color" format="color" />
+        <attr name="layout_content_size" format="dimension" />
+        <attr name="layout_content_drawable_left" format="reference" />
+        <attr name="layout_content_drawable_top" format="reference" />
+        <attr name="layout_content_drawable_right" format="reference" />
+        <attr name="layout_content_drawable_bottom" format="reference" />
+        <attr name="layout_content_text_style" format="enum">
             <enum name="normal" value="0" />
             <enum name="bold" value="1" />
             <enum name="italic" value="2" />
             <enum name="boldItalic" value="3" />
         </attr>
-        <attr name="select_formatter_type" format="enum">
-            <enum name="_number" value="0" />
-            <enum name="_short" value="1" />
-            <enum name="_int" value="2" />
-            <enum name="_long" value="3" />
-            <enum name="_float" value="4" />
-            <enum name="_double" value="5" />
-            <enum name="_price" value="6" />
-            <enum name="_weight" value="7" />
+        <!--带下划线是因为int等不能使用，该属性主要用于content可编辑时-->
+        <attr name="layout_content_formatter_type" format="enum">
+            <enum name="_normal" value="0" />
+            <enum name="_number" value="1" />
+            <enum name="_short" value="2" />
+            <enum name="_int" value="3" />
+            <enum name="_long" value="4" />
+            <enum name="_float" value="5" />
+            <enum name="_double" value="6" />
+            <enum name="_price" value="7" />
+            <enum name="_weight" value="8" />
+            <enum name="_password" value="9" />
         </attr>
 
-        <!--只有展示能力，位于content下方-->
-        <attr name="select_sub_content" format="string" />
-        <attr name="select_sub_content_color" format="color" />
-        <attr name="select_sub_content_size" format="dimension" />
-        <attr name="select_sub_content_text_style" format="enum">
-            <enum name="normal" value="0" />
-            <enum name="bold" value="1" />
-            <enum name="italic" value="2" />
-            <enum name="boldItalic" value="3" />
-        </attr>
+        <!--需要动态改变的布局（比如counter、switcher等）-->
+        <attr name="layout_sub_layout" format="reference" />
 
         <attr name="select_display_text" format="string" />
         <attr name="select_display_text_size" format="dimension" />
@@ -60,15 +64,16 @@
             <enum name="gone" value="8" />
         </attr>
 
-        <attr name="select_vertical_padding" format="dimension" />
-        <attr name="select_horizontal_padding" format="dimension" />
-        <attr name="select_show_item_bottom_divider" format="boolean" />
-        <attr name="select_show_item_top_divider" format="boolean" />
-        <attr name="select_layout_style" format="enum">
-            <enum name="small" value="0" />
-            <enum name="normal" value="1" />
-            <enum name="big" value="2" />
-        </attr>
+        <!--采用对称布局，所以没有top、bottom；left、right之分-->
+        <attr name="layout_padding_vertical" format="dimension" />
+        <attr name="layout_padding_horizontal" format="dimension" />
+
+        <attr name="layout_show_item_divider_top" format="boolean" />
+        <attr name="layout_show_item_divider_bottom" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="DisplayLayout">
+
     </declare-styleable>
 
     <declare-styleable name="SelectLayout">

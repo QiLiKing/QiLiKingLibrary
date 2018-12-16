@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@id/input_root_view"
     android:layout_width="match_parent"
     android:layout_height="@dimen/item_height">
 
     <ImageView
-        android:id="@+id/title_left_image"
+        android:id="@id/layout_input_image_left"
         android:layout_width="@dimen/outer_margin"
         android:layout_height="match_parent"
+        android:contentDescription="@string/contentDescribe"
         android:padding="@dimen/drawable_padding"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <frozen.widget.FrzNoFontPaddingTextView
-        android:id="@+id/title"
+    <TextView
+        android:id="@+id/layout_input_title"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:drawablePadding="@dimen/drawable_padding"
@@ -21,14 +21,12 @@
         android:gravity="center_vertical"
         android:singleLine="true"
         android:textColor="@color/dark_333333"
-        android:textSize="@dimen/size_normal"
-        app:layout_constraintStart_toEndOf="@id/title_left_image" />
+        android:textSize="@dimen/size_normal" />
 
     <View
         android:id="@+id/title_content_space"
         android:layout_width="@dimen/outer_margin"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/title" />
+        android:layout_height="wrap_content" />
 
     <View
         android:id="@+id/ratio"

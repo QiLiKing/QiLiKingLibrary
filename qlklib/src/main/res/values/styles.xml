@@ -1,66 +1,5 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/green_1_light_85ad4f</item>
-        <item name="colorPrimaryDark">@color/green_1_dark_8fad4f</item>
-        <item name="colorAccent">@color/green_1_light_85ad4f</item>
-        <item name="android:windowBackground">@color/white</item>
-        <!--toolbar菜单项图标的颜色-->
-        <item name="android:textColorSecondary">@color/white</item>
-        <item name="actionMenuTextColor">@color/white</item>
-        <item name="colorControlNormal">@color/white</item>
-        <item name="windowActionBar">false</item>
-        <!--<item name="android:textColor">@color/white</item>-->
-        <!--<item name="android:dropDownListViewStyle">@style/MyListViewStyle</item>-->
-        <!--<item name="android:popupMenuStyle">@style/MyPopupMenu</item>-->
-        <!--<item name="android:textAppearanceSmallPopupMenu">@style/MyTextAppearance</item>-->
-        <!--<item name="android:textAppearanceLargePopupMenu">@style/MyTextAppearance</item>-->
-    </style>
-
-    <style name="FullTheme" parent="AppTheme">
-        <item name="android:windowFullscreen">true</item>
-    </style>
-
-    <style name="MyTextAppearance">
-        <item name="android:textColor">@color/dark_333333</item>
-        <item name="android:textSize">@dimen/text_xhpi_24px</item>
-    </style>
-
-    <style name="MyListViewStyle">
-        <item name="android:divider">@color/gray_light_cccccc</item>
-        <item name="android:dividerHeight">1px</item>
-    </style>
-
-    <style name="MyPopupMenu">
-        <item name="android:popupBackground">@color/white</item>
-    </style>
-
-    <style name="text_xhdpi_32px">
-        <item name="android:background">@null</item>
-        <item name="android:textSize">@dimen/text_xhpi_32px</item>
-        <item name="android:textColorHint">@color/gray_light_cccccc</item>
-        <item name="android:textColor">@color/gray_dark_666666</item>
-    </style>
-
-    <style name="text_xhdpi_32px_single_line" parent="text_xhdpi_32px">
-        <item name="android:lines">1</item>
-    </style>
-
-    <declare-styleable name="v2_mine_layout">
-        <attr name="icon" format="reference" />
-        <attr name="title" format="string" />
-    </declare-styleable>
-
-    <style name="HomeToolbar" parent="Widget.AppCompat.Toolbar.Button.Navigation">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?attr/actionBarSize</item>
-        <item name="android:background">@color/green_1_light_85ad4f</item>
-        <item name="android:id">@id/toolbar</item>
-        <item name="titleTextColor">@color/white</item>
-    </style>
-
     <style name="HorizontalDivider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/divider_size</item>
@@ -73,31 +12,6 @@
         <item name="android:background">@color/divider_color</item>
     </style>
 
-    <style name="single_line_end">
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="normal_dark" parent="single_line_end">
-        <item name="android:textSize">@dimen/size_normal</item>
-        <item name="android:textColor">@color/dark_333333</item>
-    </style>
-
-    <style name="normal_gray" parent="single_line_end">
-        <item name="android:textSize">@dimen/size_normal</item>
-        <item name="android:textColor">@color/gray_dark_666666</item>
-    </style>
-
-    <style name="small_dark" parent="single_line_end">
-        <item name="android:textSize">@dimen/size_small</item>
-        <item name="android:textColor">@color/dark_333333</item>
-    </style>
-
-    <style name="small_gray" parent="single_line_end">
-        <item name="android:textSize">@dimen/size_small</item>
-        <item name="android:textColor">@color/gray_dark_666666</item>
-    </style>
+    <style name="LayoutItemDivider" parent="HorizontalDivider" />
 
 </resources>
