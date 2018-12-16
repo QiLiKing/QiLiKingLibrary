@@ -37,37 +37,15 @@
         <item name="android:popupBackground">@color/white</item>
     </style>
 
-    <style name="text_style">
-        <item name="android:textColor">@color/egg_color_gray_dark_6a6a6a</item>
-        <item name="android:textSize">20sp</item>
-
-    </style>
-
-    <style name="text_xhdpi_28px">
-        <item name="android:background">@null</item>
-        <item name="android:textSize">@dimen/text_xhpi_28px</item>
-        <item name="android:textColorHint">@color/gray_light_cccccc</item>
-        <item name="android:textColor">@color/gray_dark</item>
-    </style>
-
-    <style name="text_xhdpi_28px_single_line" parent="text_xhdpi_28px">
-        <item name="android:lines">1</item>
-    </style>
-
     <style name="text_xhdpi_32px">
         <item name="android:background">@null</item>
         <item name="android:textSize">@dimen/text_xhpi_32px</item>
         <item name="android:textColorHint">@color/gray_light_cccccc</item>
-        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textColor">@color/gray_dark_666666</item>
     </style>
 
     <style name="text_xhdpi_32px_single_line" parent="text_xhdpi_32px">
         <item name="android:lines">1</item>
-    </style>
-
-    <style name="no_frame_small_home_input_price" parent="no_frame_small">
-        <item name="android:layout_width">@dimen/xhpi_360px</item>
-        <item name="android:layout_height">@dimen/xhpi_266px</item>
     </style>
 
     <declare-styleable name="v2_mine_layout">
@@ -75,24 +53,12 @@
         <attr name="title" format="string" />
     </declare-styleable>
 
-    <style name="tab_text_appearance" parent="TextAppearance.Design.Tab">
-        <item name="android:textSize">@dimen/text_xhpi_28px</item>
-        <!--<item name="android:paddingTop">@dimen/_5dp</item>-->
-        <!--<item name="android:paddingBottom">@dimen/_5dp</item>-->
-    </style>
-
     <style name="HomeToolbar" parent="Widget.AppCompat.Toolbar.Button.Navigation">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?attr/actionBarSize</item>
         <item name="android:background">@color/green_1_light_85ad4f</item>
         <item name="android:id">@id/toolbar</item>
         <item name="titleTextColor">@color/white</item>
-    </style>
-
-    <style name="MyToolbar" parent="HomeToolbar">
-        <item name="contentInsetStartWithNavigation">0dp</item>
-        <item name="contentInsetStart">0dp</item>
-        <item name="navigationIcon">@drawable/ic_nav_back_24dp</item>
     </style>
 
     <style name="HorizontalDivider">
@@ -105,18 +71,6 @@
         <item name="android:layout_width">@dimen/divider_size</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/divider_color</item>
-    </style>
-
-    <style name="ConfirmButton">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/item_height</item>
-        <item name="android:background">@null</item>
-        <item name="android:textColor">@color/xml_color_counter_increase</item>
-        <item name="android:textSize">@dimen/size_big</item>
-    </style>
-
-    <style name="HorizontalConfirmButton" parent="ConfirmButton">
-        <item name="android:layout_width">match_parent</item>
     </style>
 
     <style name="single_line_end">
@@ -133,7 +87,7 @@
 
     <style name="normal_gray" parent="single_line_end">
         <item name="android:textSize">@dimen/size_normal</item>
-        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textColor">@color/gray_dark_666666</item>
     </style>
 
     <style name="small_dark" parent="single_line_end">
@@ -143,11 +97,7 @@
 
     <style name="small_gray" parent="single_line_end">
         <item name="android:textSize">@dimen/size_small</item>
-        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:textColor">@color/gray_dark_666666</item>
     </style>
 
-    <!--输入框按键样式，最左最右键样式设置-->
-    <style name="PWKInputItemStyleKey" parent="PWKInputItemStyle_FILLED_KEY"/>
-    <!--输入框外部样式-->
-    <style name="PWKInputViewStyle" parent="PWKInputViewStyle_DIVIDED"/>
 </resources>

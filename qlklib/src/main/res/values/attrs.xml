@@ -28,14 +28,14 @@
             <enum name="boldItalic" value="3" />
         </attr>
         <attr name="select_formatter_type" format="enum">
-            <enum name="number" value="0" />
-            <enum name="short" value="1" />
-            <enum name="int" value="2" />
-            <enum name="long" value="3" />
-            <enum name="float" value="4" />
-            <enum name="double" value="5" />
-            <enum name="price" value="6" />
-            <enum name="weight" value="7" />
+            <enum name="_number" value="0" />
+            <enum name="_short" value="1" />
+            <enum name="_int" value="2" />
+            <enum name="_long" value="3" />
+            <enum name="_float" value="4" />
+            <enum name="_double" value="5" />
+            <enum name="_price" value="6" />
+            <enum name="_weight" value="7" />
         </attr>
 
         <!--只有展示能力，位于content下方-->

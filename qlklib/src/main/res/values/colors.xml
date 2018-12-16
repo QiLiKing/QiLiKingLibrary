@@ -31,5 +31,5 @@
 
     <color name="pwk_primary_color">@color/green_1_light_85ad4f</color>
     <!--确定按键按下时的颜色-->
-    <color name="pwk_primary_dark_color">@color/green_dark</color>
+    <color name="pwk_primary_dark_color">@color/green_1_dark_8fad4f</color>
 </resources>
