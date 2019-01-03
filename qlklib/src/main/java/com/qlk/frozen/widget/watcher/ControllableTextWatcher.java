@@ -1,6 +1,6 @@
 package com.qlk.frozen.widget.watcher;
 
-import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
@@ -16,7 +16,7 @@ public abstract class ControllableTextWatcher extends FocusableTextWatcher {
         this(null);
     }
 
-    public ControllableTextWatcher(@NonNull View hostView) {
+    public ControllableTextWatcher(@Nullable View hostView) {
         super(hostView);
     }
 
@@ -60,11 +60,12 @@ public abstract class ControllableTextWatcher extends FocusableTextWatcher {
             onControlTextChanged(s);
         } else {
             setPrevious(previous);  //更改父类的字段
-            if (mHostView instanceof EditText) {
-                keepSelection((EditText) mHostView, previous);
+            View hostView = getHostView();
+            if (hostView instanceof EditText) {
+                keepSelection((EditText) hostView, previous);
                 onControlTextChanged(previous);
-            } else if (mHostView instanceof TextView) {
-                ((TextView) mHostView).setText(previous);
+            } else if (hostView instanceof TextView) {
+                ((TextView) hostView).setText(previous);
                 onControlTextChanged(previous);
             } else {
                 onResetRequest(previous);

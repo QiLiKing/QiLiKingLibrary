@@ -30,6 +30,9 @@ public abstract class SimpleTextWatcher implements TextWatcher {
 
     protected abstract void onSimpleTextChanged(CharSequence s);
 
+    /**
+     * @param previous 可以使其在接下来的“setText()”时，不再自动回调“onSimpleTextChanged()”
+     */
     public void setPrevious(String previous) {
         this.previous = previous;
     }

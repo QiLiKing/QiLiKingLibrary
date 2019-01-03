@@ -1,9 +1,9 @@
 package com.qlk.frozen.widget.watcher;
 
-
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
+
+import java.lang.ref.WeakReference;
 
 /**
  * <br/>
@@ -11,31 +11,37 @@ import android.view.View;
  * Created by QiLiKing on 2018/12/10 09:19
  */
 public abstract class FocusableTextWatcher extends SimpleTextWatcher {
-    @Nullable
-    protected View mHostView;
+    private WeakReference<View> mTarget;
 
     public FocusableTextWatcher() {
         this(null);
     }
 
-    // TODO: 2018/12/10 相互引用，是否会造成内存泄漏
-    public FocusableTextWatcher(@NonNull View hostView) {
-        this.mHostView = hostView;
+    public FocusableTextWatcher(@Nullable View hostView) {
+        setHostView(hostView);
     }
 
+    @Nullable
     public View getHostView() {
-        return mHostView;
+        if (mTarget != null) {
+            return mTarget.get();
+        }
+        return null;
     }
 
-    public void setHostView(View view) {
-        mHostView = view;
+    public void setHostView(@Nullable View hostView) {
+        mTarget = null;
+        if (hostView != null) {
+            mTarget = new WeakReference<>(hostView);
+        }
     }
 
     public abstract void onFocusTextChanged(CharSequence s);
 
     @Override
     public void onSimpleTextChanged(CharSequence s) {
-        if (mHostView == null || mHostView.hasFocus()) {
+        View hostView = getHostView();
+        if (hostView == null || hostView.hasFocus()) {
             onFocusTextChanged(s);
         }
     }

@@ -1,6 +1,5 @@
 package com.qlk.frozen.utils.formatter.number;
 
-import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -17,11 +16,6 @@ import java.util.regex.Pattern;
  * Created by QiLiKing on 2018/12/14 11:23
  */
 public class DigitFormatter extends DoubleFormatter implements IDigitFormatter {
-
-    /* 308,324：double 的最大小数位 */
-    @IntRange(from = 1, to = 325)
-    public @interface DigitalRange {
-    }
 
     private final Pattern DigitPattern;
     private final int digit;
